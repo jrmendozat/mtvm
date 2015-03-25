@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% block contenido_index %} {% endblock contenido_index %}
+{% block ver_datos_basicos %}
+
+<div class="col-md-1"></div>
+<div>
+    <h2>Informacion general</h2>
+    {% if cliente_individual %}
+
+    {% for i in cliente_individual %}
+
+    <p>
+        Nombre principal <br>
+        {{ i.nombre_principal }}
+    </p>
+
+    <p>
+        Tipo de cliente <br>
+        {{ i.tipo_cliente }}
+    </p>
+    <p>
+        Tipo de precio <br>
+        {{ i.tipo_cliente.precio }}
+    </p>
+    <p>
+        Condición de pago <br>
+        {{ i.condicion_pago }}
+    </p>
+    <p>
+        Monto de credito <br>
+        {{ i.monto_credito }}
+    </p>
+    <p>
+        Segmento <br>
+        {{ i.segmento }}
+    </p>
+    <p>
+        Sitio web <br>
+        {{ i.sitio_web }}
+    </p>
+    <p>
+        Comentarios <br>
+        {{ i.comentarios }}
+    </p>
+    <p>
+        Estado del cliente <br>
+        {% if i.activo %}
+
+        Activo
+
+        {% else %}
+
+        Inactivo
+
+        {% endif %}
+    </p>
+    <p>
+        Dato adicional 1 <br>
+        {{ i.adicional1 }}
+    </p>
+    <p>
+        Dato adicional 2 <br>
+        {{ i.adicional2 }}
+    </p>
+    <p>
+        Dato adicional 3 <br>
+        {{ i.adicional3 }}
+    </p>
+    <p>
+        Dato adicional 4 <br>
+        {{ i.adicional4 }}
+    </p>
+
+    {% endfor %}
+
+    {% endif %}
+
+</div>
+<div class="col-md-1"></div>
+<div >
+    <h2>Telefonos</h2>
+    <br>
+    <p><a class="btn btn-default" href="telefono/nuevo/">Nuevo</a></p>
+    <br>
+    <div class="row">
+
+        <p>
+           {% comment %} <input type="submit" name="comment"
+           value="ver lista" id="toggle-content" /> {% comment %}
+         {% comment %}
+             {% url 'lista_telefono_cliente' object_list.10 %}
+             {% endcomment %}
+             {% block content_telefono %}{% endblock %}
+             <div id="extra-content">{% include "telefonocliente_lista.html" %}</div>
+
+         </p>
+     </div>
+     <br>
+     <br>
+     <p>
+        formulario de editar abatible con el control de editar
+    </p>
+    <br>
+</div>
+<div>
+    <h2>emails del cliente + agregar</h2>
+    <p>
+        formulario de agregar abatible con el boton de agregar
+    </p>
+    <br>
+    <p><input type="submit" name="comment"
+        value="ver lista" id="toggle-content" />
+        lista de emails del cliente con controles
+
+        <div id="extra-content">{% include "Emailcliente_lista.html" %}</div>
+
+    </p>
+    <br>
+    <p>
+        formulario de editar abatible con el control de editar
+
+    </p>
+    <br>
+</div>
+<div>
+    <h2>direcciones del cliente + agregar</h2>
+    <p>formulario de agregar abatible con el boton de agregar</p>
+    <br>
+    <p>
+        lista de direcciones del cliente con controles
+        <input type="submit" name="comment" value="ver lista" id="toggle-content"/>
+        <div id="extra-content">{% include "direccioncliente_lista.html" %}</div>
+
+    </p>
+    <br>
+
+    <p>formulario de editar abatible con el control de editar</p>
+    <br>
+
+</div>
+<div>
+    <h2>personas relacionadas del cliente solo espacio de ejemplo</h2>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus magnam odio iusto, nostrum maiores atque quisquam enim aut eos consectetur. Dicta eos porro, fugit cupiditate neque quae molestias dolores ut.
+    </p>
+    <br>
+</div>
+<div>
+    <h2>empresas relacionadas del cliente solo espacio de ejemplo</h2>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, a! Nulla cum eaque culpa ducimus modi consectetur recusandae ipsam, dolore. Enim necessitatibus ipsam saepe. Ab, maxime sapiente aspernatur eligendi fuga!
+    </p>
+
+</div>
+
+<!-- <script>
+$(document).ready(function() {
+    $("#extra-content").hide();
+    $("#toggle-content").click(function(){
+        $("#extra-content").show();
+        $("#toggle-content").hide();
+    });
+});
+</script> -->
+
+{% endblock ver_datos_basicos %}

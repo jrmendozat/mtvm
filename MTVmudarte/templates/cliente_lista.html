@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block contenido_index %} {% endblock contenido_index %}
+{% block ver_datos_basicos %}
+{% if list_clie %}
+<div class="col-md-1"></div>
+<div class="col-md-9">
+    <h2>Listado de clientes </h2>
+    <a href="nuevo/" class="btn btn-default">Nuevo</a>
+   <br>
+    <h6>Cantidad de clientes encontrados: <span class="badge">{{ list_clie.count }}</span> </h6>
+    <table class="table table-hover">
+       <tr class="active">
+        <th>Nombre</th>
+        <th>Tipo cliente</th>
+        <th>Condicion pago</th>
+        <th>Estado</th>
+        <th>Ver ficha</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+    </tr>
+    {% for i in list_clie %}
+    <tr><td>{{ i.nombre_principal }}</td>
+        <td>{{ i.tipo_cliente }}</td>
+        <td>{{ i.condicion_pago }}</td>
+        <td>
+            {% if i.activo %}
+            Activo
+            {% else %}
+            Inactivo
+            {% endif %}
+        </td>
+        <td><a href="#" class="glyphicon glyphicon-tag"></a></td>
+        <td><a href="{{i.id}}/" class="glyphicon glyphicon-edit"></a></td>
+        <td><a href="delete/{{i.id}}" class="glyphicon glyphicon-remove"></a></td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="nuevo/" class="btn btn-default">Nuevo</a>
+</div>
+{% else %}
+<p> No cliente are available. </p>
+<a href="nuevo/" class="btn btn-default">Nuevo</a>
+{% endif %}
+{% endblock ver_datos_basicos %}

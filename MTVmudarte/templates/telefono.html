@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'dist/css/bootstrap.min.css' %}">
+    <title>telefonos | Aplicacion</title>
+</head>
+<body class="container">
+    <h1>archivo telefono.html</h1>
+    <h2>Lista de numeros</h2>
+ {% if obj_list %}
+ <div class="col-md-4">
+    <table class="table table-hover">
+         <tr class="active">
+            <th>Tipo Telefono</th>
+            <th>Numero</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr><td>nro registro</td><td>{{ obj_list.count }}</td></tr>
+        {% for i in obj_list %}
+
+        <tr><td>{{ i.tipo_telefono }}</td>
+            <td>{{ i.numero }}</td>
+            <td><a href="editar/{{i.id}}/">Editar</a></td>
+            <td><a href="delete/{{i.id}}">delete</a></td>
+        </tr>
+
+
+     {% endfor %}
+    </table>
+</div>
+ {% else %}
+     <p> No Telefono are available. </p>
+ {% endif %}
+ <script src="{% static 'dist/js/bootstrap.min.js' %}"></script>
+ <script src="{% static 'js/jquery.js' %}"></script>
+</body>
+</html>

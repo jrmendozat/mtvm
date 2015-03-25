@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+    {% block title %}{% endblock %}</title>
+</head>
+{% load i18n %}
+<body>
+
+<div>
+    <div>
+        <h2>Datos b&aacute;sicos del cliente</h2><br>
+        {% block ver_datos_basicos %}{% endblock %}
+        {% block editar_datos_basicos %}{% endblock %}
+        {% block ingresar_datos_basicos %}{% endblock %}
+    </div>
+    <div>
+        <h2>Tel&eacute;fonos</h2><br>
+        {% block ver_telefonos %}{% endblock %}
+        {% block editar_telefonos %}{% endblock %}
+        {% block ingresar_telefonos %}{% endblock %}
+    </div>
+    <div>
+        <h2>emails</h2><br>
+        {% block ver_email %}{% endblock %}
+        {% block editar_email %}{% endblock %}
+        {% block ingresar_email %}{% endblock %}
+    </div>
+    <div>
+        <h2>Direcciones</h2><br>
+        {% block ver_direcciones %}{% endblock %}
+        {% block editar_direcciones %}{% endblock %}
+        {% block ingresar_direcciones %}{% endblock %}
+    </div>
+    <div>
+        <h2>Personas relacionadas</h2><br>
+        {% block ver_personas %}{% endblock %}
+        {% block editar_personas %}{% endblock %}
+        {% block ingresar_personas %}{% endblock %}
+    </div>
+    <div>
+        <h2>Empresas relacionadas</h2><br>
+        {% block ver_empresas %}{% endblock %}
+        {% block editar_empresas %}{% endblock %}
+        {% block ingresar_telefonos %}{% endblock %}
+    </div>
+
+    {% block footer %}<div></div>{% endblock %}
+</div>
+
+</body>
+</html>

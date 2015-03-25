@@ -1,0 +1,52 @@
+{% block Prueba %}
+    <h1>archivo prueba.html</h1>
+    <h2>Lista de numeros</h2>
+ {% if obj_list %}
+    <div>
+        {% for i in obj_list %}
+
+        <h2>{{ i.tipo_telefono }}</h2>
+         <h3>{{ i.numero }}</h3>
+
+     {% endfor %}
+    </div>
+
+    <ul>
+        {% for i in obj_list %}
+            <li><a href="editar/{{i.id}}/">{{ i.tipo_telefono }} {{ i.numero }}</a></li>
+        {% endfor %}
+    </ul>
+
+ {% else %}
+     <p> No Telefono are available. </p>
+ {% endif %}
+
+ <form action="" method="post">
+    {% csrf_token %}
+    {% if create %}
+
+    {{ cliente_form.as_p }}
+    {{ clitel_form.as_p }}
+    {{ telefono_form }}
+
+
+    {% else %}
+    {{ editar_clie.as_p }}
+    {{ clitel_form.as_p }}
+    {{ telefono_form }}
+
+
+    {% endif %}
+     <div>
+    {% include "telefonoform.html" with create="True" %}
+    {% include "list_cliente.html" %}
+    {% include "telefono.html" with obj_list="Telefono.views.lista_tipo" %}
+
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <input type="submit" value="Guardar cambios">
+</form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block titulo_head %}<title>Aplicacion Mudarte</title>{% endblock titulo_head %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilosForm.css' %}">
+</head>
+<body>
+    {% include "base_nav.html" %}
+    {% include "base_construccion.html" %}
+    {% include "base_contactenos.html" %}
+    {% include "base_menuapp.html" %}
+
+    {% block contenido_index %}
+    {% include "base_index.html" %}
+    {% endblock contenido_index %}
+    {% block titulo_base %}{% endblock titulo_base %}
+    {% block ver_datos_basicos %}{% endblock ver_datos_basicos %}
+    {% block Prueba %}{% endblock Prueba %}
+    {% block confirmar %}{% endblock confirmar %}
+    <script src="{% static 'js/jquery-latest.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

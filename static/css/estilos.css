@@ -1,0 +1,58 @@
+.menu{
+    width: 100%;
+    position: absolute;
+    left: -105%;
+    background: rgba(189, 195, 199,1.0);
+    box-sizing:border-box;
+    display:block;
+}
+.seccion{
+    width: 5%;
+    display: table-cell;
+    border-right: 1px solid rgba(255,255,255,.5);
+    box-sizing:border-box;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.seccion:last-child{
+    border: none;/* para quitarle el border al ultimo ul*/
+}
+.nav{
+    position: relative;
+    z-index: 5;
+}
+.seccion>.li{
+    color: #000;
+}
+.seccion>.li>.a{
+    text-decoration: none;
+    color: #000;
+    display:block;
+    padding: 10px 20px;
+}
+.seccion>.li:hover{
+    background: rgba(0,0,0,.1);
+}
+.titulo{
+    text-align:left;
+    margin-left: 3px;
+}
+.blanco{
+    background: rgba(236, 240, 241,1.0);
+}
+.comercialLink,.operacionesLink,.administracionLink,.sistemasLink{
+    display: none!important;
+}
+.block{
+    display:block!important;
+}
+.none{
+    display: none!important;
+}
+.divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}

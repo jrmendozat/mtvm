@@ -1,0 +1,24 @@
+<p><a href="nuevo/">Nuevo</a></p>
+{% if lista_email %}
+ <div class="col-md-4">
+    <table class="table table-hover">
+         <tr class="active">
+            <th>Email</th>
+            <th>Cliente</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for i in lista_email %}
+
+        <tr><td>{{ i.email }}</td>
+            <td>{{ i.cliente.nombre_principal }}</td>
+            <td><a href="editar/{{i.id}}/">Editar</a></td>
+            <td><a href="delete/{{i.id}}">delete</a></td>
+        </tr>
+
+     {% endfor %}
+    </table>
+</div>
+ {% else %}
+ <p> No Tipo cliente are available. </p>
+ {% endif %}

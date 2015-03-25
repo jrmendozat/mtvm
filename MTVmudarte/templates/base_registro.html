@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block contenido_index %} {% endblock contenido_index %}
+{% block ver_datos_basicos %}
+<div class="container">
+  <div class="col-md-4">
+    <form>
+      <h2>Registro cliente</h2>
+      <div class="form-group">
+        <button type="submit" class="btn btn-default">Registrar</button>
+        <br>
+        <label for="exampleInputNombre"></label>
+        <input type="text" class="form-control input-lg" id="exampleInputNombre" placeholder="Su nombre">
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="tipocliente">Tipo cliente</label>
+          </div>
+          <div class="col-md-6">
+            <select name="idtipoCliente" id="tipocliente" class="form-control input-lg">
+              <option value="1">---------------</option>
+              <option value="2">Particular</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="condicionPago">Condicion pago</label>
+          </div>
+          <div class="col-md-6">
+            <select name="idcondicionPago" id="condicionPago" class="form-control input-lg">
+              <option value="1">---------------</option>
+              <option value="2">Contado</option>
+              <option value="3">Credito</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1"></label>
+        <input type="text" class="form-control input-lg" id="exampleInputPassword1" placeholder="Monto credito">
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="segmento">Segmento</label>
+          </div>
+          <div class="col-md-6">
+            <select name="idSegmento" id="segmento" class="form-control input-lg">
+              <option value="1">---------------</option>
+              <option value="2">Hogar</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="sitioweb"></label>
+        <input type="url" class="form-control input-lg" id="sitioweb" placeholder="Sitio Web">
+      </div>
+      <textarea class="form-control input-lg" rows="3" placeholder="Comentarios"></textarea>
+      <div class="form-group">
+        <label for="adicional1"></label>
+        <input type="text" class="form-control input-lg" id="adicional1" placeholder="Adicional 1">
+      </div>
+      <div class="form-group">
+        <label for="adicional2"></label>
+        <input type="text" class="form-control input-lg" id="adicional2" placeholder="Adicional 2">
+      </div>
+      <div class="form-group">
+        <label for="adicional3"></label>
+        <input type="text" class="form-control input-lg" id="adicional3" placeholder="Adicional 3">
+      </div>
+      <div class="form-group">
+        <label for="adicional4"></label>
+        <input type="text" class="form-control input-lg" id="adicional4" placeholder="Adicional 4">
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Activo
+        </label>
+      </div>
+      <button type="submit" class="btn btn-default">Registrar</button>
+    </form>
+  </div>
+</div>
+{% endblock ver_datos_basicos %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block contenido_index %} {% endblock contenido_index %}
+{% block confirmar %}{% endblock confirmar %}
+{% block ver_datos_basicos %}
+{% if lista_segmento %}
+<div class="col-md-1"></div>
+<div class="col-md-4">
+    <h2>Listado de segmentos </h2>
+    <a href="nuevo/" class="btn btn-default">Nuevo</a>
+    <br>
+    <h6>Cantidad de segmentos encontrados: <span class="badge">{{ lista_segmento.count }}</span> </h6>
+    <table class="table table-hover">
+     <tr class="active">
+        <th>Segmento</th>
+        <th>Status</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+    </tr>
+
+    {% for i in lista_segmento %}
+
+    <tr>
+        <td>
+            {{ i.segmento }}
+        </td>
+        <td>
+            {% if i.activo %}
+            Activo
+            {% else %}
+            Inactivo
+            {% endif %}
+        </td>
+        <td><a href="{{i.id}}/" class="glyphicon glyphicon-edit"></a></td>
+        <td>
+            <a href="delete/{{i.id}}" class="eliminar1 glyphicon glyphicon-remove"></a>
+        </td>
+    </tr>
+    {% endfor %}
+    <a href="delete/{{i.id}}" class="eliminar2" style="display:none;">eliminar {{ object }} ?</a>
+    <form method="post" class="eliminar2 none" style="display:none;">
+            {% csrf_token %}
+            <h5 class="alert alert-info" role="alert" style="text-align: center;">¿ Eliminar el registro "{{ object }}" ?
+                <br>
+                <br>
+                <input type="submit" class="btn btn-default" value="Si" />
+                <a href="javascript:history.back()" class="btn btn-default">No</a>
+            </h5>
+            <br>
+        </form>
+</table>
+<a href="nuevo/" class="btn btn-default">Nuevo</a>
+<div >eliminar ???</div>
+</div>
+
+{% else %}
+<p> No cliente are available. </p>
+<a href="nuevo/" class="btn btn-default">Nuevo</a>
+{% endif %}
+<script>
+
+$('.eliminar1').click(function(){
+
+    var eliminar = $('.eliminar2');
+    eliminar.addClass('block');
+    alert('alerta');
+})
+
+</script>
+{% endblock ver_datos_basicos %}
+

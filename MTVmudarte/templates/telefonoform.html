@@ -1,0 +1,57 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de telefono</title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
+   <!-- <link rel="stylesheet" href="{% static 'dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/telefonoform.css' %}"> -->
+
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+
+    {% block heading %}
+    <h2>{% if create %}Crear telefono{% else %}Editar telefono{% endif %}</h2>
+    {% endblock %}
+
+    {% block contenido %}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="area">
+    <form id='formulario' method='post' enctype='multipart/form-data' action=''>
+        <span class="label label-primary telefono">Telefono</span>
+        <p id="seleccionM" class="seleccion"></p>
+        {% csrf_token %}
+    {% if create %}
+
+        {{formulario.as_p}}
+
+    {% else %}
+
+        {{editar_telef_form}}
+
+    {% endif %}
+       <!--  <p><a href="#" class="borrar glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="bottom" title="Borrar" onclick="borrarCampo()"></a></p>
+       <p><a href="#" type="submit" class="agregar glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="bottom" title="Agregar" onclick="cargarNumero()"></a></p>-->
+       <p><button type="button" class="borrar glyphicon glyphicon-remove" onclick="borrarCampo()" data-toggle="tooltip" data-placement="bottom" title="Borrar"></button></p>
+       <p><button type="submit" class="agregar glyphicon glyphicon-ok" onclick="cargarNumero()" data-toggle="tooltip" data-placement="bottom" title="Agregar"></button></p>
+    </form>
+</div><!--fin area-->
+{% endblock %}
+    </div><!--fin col-->
+</div><!--fin row-->
+</div><!--fin container-->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/telefonoform.js' %}"></script>
+
+</body>
+</html>
+
+
