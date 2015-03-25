@@ -46,7 +46,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
     'haystack',
-    'Clase',
     'Llamadas',
     'Pais',
     'Cliente',

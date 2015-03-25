@@ -54,17 +54,18 @@ def delete_segmento(request, pk, template_name='server_confirm_delete.html'):
         return HttpResponseRedirect(reverse('usegmentos:lista_segmento'))
     return render(request, template_name, {'object':segmento})
 
-def mensaje_eliminar(request, pk, template_name='segmento_lista.html'):
-    segmento = get_object_or_404(Segmento, pk=pk)
-    if request.method == 'POST':
+def mensaje_eliminar(request, pk):
+
+     segmento = get_object_or_404(Segmento, pk=pk)
+     if request.method == 'POST':
         segmento.delete()
-        return HttpResponseRedirect(reverse('usegmentos:lista_segmento'))
-    return render(request, {'object':segmento})
+
 
 def eliminar(request,pk):
 
     html = "<script>alert('alerta');</script>"
     return HttpResponse(html)
+
 
 #vista para la busqueda
 def segmentos(request):

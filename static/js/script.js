@@ -125,8 +125,9 @@ var focuEmail = $('#id_email');
     focuEmail.focus();
 
 $('.eliminar1').click(function(){
-
+    var mensaje = $('.mensaje')
     var eliminar = $('.eliminar2');
     eliminar.addClass('block');
-    alert('alerta');
+    mensaje.addClass('block');
+
 })
