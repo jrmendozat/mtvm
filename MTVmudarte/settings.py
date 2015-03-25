@@ -95,8 +95,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db_Mudarte',
         'USER':'root',
-        'PASSWORD': 'md123',
-        'HOST': '192.168.1.103',
+        'PASSWORD': '',
+        'HOST': '',
         'PORT': '',
     }
 }
