@@ -24,5 +24,6 @@ urlpatterns = patterns('',
     url(r'^registro/', 'inicio.views.registro', name = 'registro'),
     url(r'^direccion/', include('Direccion.urls', namespace="udireciones")),
     url(r'^search/', include('haystack.urls')),
+    url(r'^sede/', include('Sede.urls', namespace="usede")),
 
 )

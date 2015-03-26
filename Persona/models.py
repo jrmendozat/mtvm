@@ -1,6 +1,6 @@
 from django.db import models
 from Telefono.models import Telefono
-from Direccion.models import Direccion
+#from Direccion.models import Direccion
 
 # Create your models here.
 class Tratamiento(models.Model):
@@ -50,7 +50,7 @@ class Persona_telefono(models.Model):
 
 class Persona_Direccion(models.Model):
     persona = models.ForeignKey(Persona)
-    direccion = models.OneToOneField(Direccion)
+    #direccion = models.OneToOneField(Direccion)
 
     def __unicode__(self):
         return u'%s - %s'%(self.persona, self.direccion)

@@ -1,14 +1,16 @@
 from django.shortcuts import render_to_response, render, get_object_or_404
 from Cliente.forms import ClienteForm, ClienteTelefonoForm, EmailForm,\
  ClienteDireccionForm
+from Cliente.models import Cliente, Email, Cliente_telefono, Cliente_Direccion
 from Telefono.forms import TelefonoForm
+from Telefono.models import Telefono
 from Direccion.forms import DireccionForm
+from Direccion.models import Direccion
+from Sede.forms import SedeForm
+from Sede.models import Sede
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
-from Cliente.models import Cliente, Email, Cliente_telefono, Cliente_Direccion
-from Telefono.models import Telefono
-from Direccion.models import Direccion
 from django.forms.formsets import formset_factory
 
 
@@ -115,10 +117,15 @@ def add_direccion_cliente(request, id_cli):
     if request.method == 'POST':
 
         direccion_form = DireccionForm(request.POST)
+        sede_form = SedeForm(request.POST)
 
         if direccion_form.is_valid():
             obj_dir = direccion_form.save()
             direc = Direccion.objects.get(id = obj_dir.id)
+
+        if sede_form.is_valid():
+            obj_sede = sede_form.save()
+            sede = Sede.objects.get(id = obj_sede.id)
 
         clidir_form = ClienteDireccionForm(request.POST)
         if clidir_form.is_valid():
@@ -126,14 +133,17 @@ def add_direccion_cliente(request, id_cli):
             #luego de hacer el save anterior le metodo el ID al siguiente y listo
             formResult2.cliente = cliente
             formResult2.direc = direc
+            formResult2.sede = sede
             formResult2.save()
     else:
         direccion_form = DireccionForm()
+        sede_form = SedeForm()
         clidir_form = ClienteDireccionForm()
 
     return render_to_response('direccioncliente_add.html', \
-     {'direccion_form':direccion_form,'clidir_form':clidir_form,\
-     'id_cli':id_cli, 'create': True}, context_instance = RequestContext(request))
+     {'direccion_form':direccion_form,'clidir_form':clidir_form, \
+     'sede_form':sede_form, 'id_cli':id_cli, 'create': True}, \
+      context_instance = RequestContext(request))
 
 # editar un registro
 def editar_cliente(request, id_cli):

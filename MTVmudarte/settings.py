@@ -47,7 +47,6 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'haystack',
     'Llamadas',
-    'Pais',
     'Cliente',
     'Segmento',
     'Condicion_pago',

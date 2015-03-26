@@ -1,7 +1,7 @@
 #encoding:utf-8
 from django.db import models
 from django.contrib import admin
-from django.forms import ModelForm
+
 # Create your models here.
 class Condicion_pago(models.Model):
     """docstring for Condicion_pago"""
@@ -22,9 +22,5 @@ class Condicion_pago(models.Model):
     class Meta:
         verbose_name = "Condicion de pago"
         verbose_name_plural = "Condiciones de pago"
-
-class CondicionPagoForm(ModelForm):
-    class Meta:
-        model = Condicion_pago
 
 admin.site.register(Condicion_pago)

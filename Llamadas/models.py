@@ -1,7 +1,7 @@
 #encoding: utf-8
 from django.db import models
 from django.contrib import admin
-from Direccion.models import Zona
+#from Direccion.models import Zona
 
 #declaración de variables
 ENTRADA = '1'
@@ -42,12 +42,12 @@ class llamada(models.Model):
     observacion = models.CharField(max_length=250)
     direccorigen = models.CharField(max_length=250)
     barrioorigen = models.CharField(max_length=100)
-    zonaorigen = models.ForeignKey(Zona, related_name='zona1')
+    #zonaorigen = models.ForeignKey(Zona, related_name='zona1')
     tipoorigen = models.CharField(max_length=100)
     ambptos = models.PositiveIntegerField()
     direccdestino = models.CharField(max_length=250)
     barriodestino = models.CharField(max_length=100)
-    zonadestino = models.ForeignKey(Zona, related_name='zona2')
+    #zonadestino = models.ForeignKey(Zona, related_name='zona2')
     fuentereclutamiento = models.CharField(max_length=200)
     barriopublicidad = models.CharField(max_length=100)
     email = models.EmailField()

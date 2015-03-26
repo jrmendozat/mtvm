@@ -16,6 +16,7 @@ class Tipo_sede(models.Model):
 class Sede(models.Model):
 
     tipo = models.ForeignKey(Tipo_sede)
+    sede = models.CharField(max_length=250)
     piso = models.IntegerField(default=0)
     piso_por_escalera = models.IntegerField(default=0)
     numero_ambiente = models.IntegerField(default=1)
