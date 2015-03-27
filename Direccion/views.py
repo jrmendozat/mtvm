@@ -10,7 +10,7 @@ from django.template import RequestContext
 def lista_pais(request):
     lista_pais = Pais.objects.all()
     context = {'lista_pais':lista_pais}
-    return render (request,'pais_lista.html', context)
+    return render (request,'direccion/pais_lista.html', context)
 
 def lista_tipo_direccion(request):
     lista_tipodireccion = Tipo_direccion.objects.all()

@@ -46,7 +46,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
     'haystack',
-    'Llamadas',
+    #'Llamadas',
     'Cliente',
     'Segmento',
     'Condicion_pago',
@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     'Persona',
     'Departamento',
     'Trabajador',
+    'Mueble',
 
 )
 
@@ -95,7 +96,7 @@ DATABASES = {
         'NAME': 'db_Mudarte',
         'USER':'root',
         'PASSWORD': 'md123',
-        'HOST': '192.168.1.103',
+        'HOST': '',
         'PORT': '',
     }
 }

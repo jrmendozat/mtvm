@@ -29,7 +29,7 @@ class Sede(models.Model):
         verbose_name = "Sede"
         verbose_name_plural = "Sedes"
 
-class Tipo_ambiente(models.Model):
+class Tipo_Ambiente(models.Model):
 
     tipo_ambiente = models.CharField(max_length=50, unique=True)
 
@@ -42,7 +42,7 @@ class Tipo_ambiente(models.Model):
 
 class Ambiente(models.Model):
 
-    ambiente = models.ForeignKey(Tipo_ambiente)
+    ambiente = models.ForeignKey(Tipo_Ambiente)
     sede = models.ForeignKey(Sede)
 
     def __unicode__(self):

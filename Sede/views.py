@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response, get_object_or_404
-from Sede.models import Tipo_sede, Sede, Tipo_ambiente, Ambiente
+from Sede.models import Tipo_sede, Sede, Tipo_Ambiente, Ambiente
 from Sede.forms import TipoSedeForm, SedeForm, TipoAmbienteForm, AmbienteForm
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
@@ -18,7 +18,7 @@ def lista_sede(request):
     return render(request, 'sede/sede_lista.html', context)
 
 def lista_tipoambiente(request):
-    lista_tipoambiente = Tipo_ambiente.objects.all()
+    lista_tipoambiente = Tipo_Ambiente.objects.all()
     context = {'lista_tipoambiente': lista_tipoambiente}
     return render(request, 'sede/tipoambiente_lista.html', context)
 
@@ -143,7 +143,7 @@ def edit_ambiente(request, pk):
 
 def edit_tipoambiente(request, pk):
 
-    tipoambiente = Tipo_ambiente.objects.get(pk = pk)
+    tipoambiente = Tipo_Ambiente.objects.get(pk = pk)
 
     if request.method == 'POST':
         # formulario enviado
@@ -187,7 +187,7 @@ def delete_ambiente(request, pk, template_name='server_confirm_delete.html'):
     return render(request, template_name, {'object':ambiente})
 
 def delete_tipoambiente(request, pk, template_name='server_confirm_delete.html'):
-    tipoambiente = get_object_or_404(Tipo_ambiente, pk=pk)
+    tipoambiente = get_object_or_404(Tipo_Ambiente, pk=pk)
     if request.method == 'POST':
         tipoambiente.delete()
         return HttpResponseRedirect(reverse('usede:lista_tipoambiente'))
