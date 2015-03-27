@@ -6,12 +6,12 @@
     <h2>Editar telefono cliente</h2>
     <form action="" method="post">
         {% csrf_token %}
-        <button type="submit" class="btn btn-default">Registrar</button>
+        <button type="submit" class="btn btn-default">Guardar</button>
         <a href="/cliente/" class="btn btn-default">Regresar</a><br><br>
         <div class="form-group">{{form_edit_telefono.as_p}}
         </div>
         <button type="submit" class="btn btn-default">Registrar</button>
-        <a href="/cliente/" class="btn btn-default">Regresar</a><br><br>
+        <a href="/cliente/" class="btn btn-default">Guardar</a><br><br>
     <!--{{ telefono_formset.management_form }}
     {{ clitel_formset.management_form }}
 

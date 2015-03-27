@@ -26,3 +26,6 @@ urlpatterns = patterns('',
     url(r'^search/', include('haystack.urls')),
 
 )
+
+handler404 = 'mysite.views.handler404'
+
