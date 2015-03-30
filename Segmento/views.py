@@ -19,10 +19,11 @@ def add_segmento(request):
         form_segmento = SegmentoForm(request.POST, request.FILES)
         if form_segmento.is_valid():
           form_segmento.save()
-        return HttpResponseRedirect(reverse('usegmentos:lista_segmento'))
+        return HttpResponseRedirect(reverse('usegmentos:segmento_lista'))
     else:
         form_segmento = SegmentoForm()
-    return render_to_response('add_segmento.html', {'form_segmento':form_segmento, 'create': True}, context_instance = RequestContext(request))
+    return render_to_response('add_segmento.html', \
+        {'form_segmento':form_segmento, 'create': True}, context_instance = RequestContext(request))
 
 # editar un registro
 

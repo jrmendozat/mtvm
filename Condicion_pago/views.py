@@ -1,5 +1,6 @@
 from django.shortcuts import render, render_to_response, get_object_or_404
-from Condicion_pago.models import Condicion_pago, CondicionPagoForm
+from Condicion_pago.models import Condicion_pago
+from Condicion_pago.forms import CondicionPagoForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
