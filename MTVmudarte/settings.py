@@ -59,7 +59,7 @@ INSTALLED_APPS = (
     'Departamento',
     'Trabajador',
     'Mueble',
-
+    'Articulo',
 )
 
 HAYSTACK_CONNECTIONS = {

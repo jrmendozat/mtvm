@@ -7,18 +7,22 @@ from django import forms
 class TipoSedeForm(ModelForm):
     class Meta:
         model = Tipo_sede
+        fields = '__all__'
 
 class SedeForm(ModelForm):
     class Meta:
         model = Sede
+        fields = '__all__'
 
 class TipoAmbienteForm(ModelForm):
     class Meta:
         model = Tipo_Ambiente
+        fields = '__all__'
 
 class AmbienteForm(ModelForm):
     class Meta:
         model = Ambiente
+        fields = '__all__'
 
 class ClienteSedeForm(forms.Form):
     tipo_sede = forms.ModelChoiceField(queryset = Tipo_sede.objects.all())

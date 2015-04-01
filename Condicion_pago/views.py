@@ -24,7 +24,6 @@ def add_condicionpago(request):
     return render_to_response('condicionpago_add.html', {'form_condicionpago':form_condicionpago, 'create': True}, context_instance = RequestContext(request))
 
 # editar un registro
-
 def edit_condicionpago(request, pk):
 
     condicionpago = Condicion_pago.objects.get(pk = pk)

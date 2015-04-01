@@ -6,7 +6,9 @@ from Tipo_cliente.models import Tipo_cliente, Tipo_precio
 class TipoClienteForm(ModelForm):
     class Meta:
         model = Tipo_cliente
+        fields = '__all__'
 
 class TipoPrecioForm(ModelForm):
     class Meta:
         model = Tipo_precio
+        fields = '__all__'

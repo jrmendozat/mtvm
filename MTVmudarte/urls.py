@@ -26,6 +26,6 @@ urlpatterns = patterns('',
     url(r'^search/', include('haystack.urls')),
     url(r'^sede/', include('Sede.urls', namespace="usede")),
     url(r'^mueble/', include('Mueble.urls', namespace="umueble")),
-
+    url(r'^articulo/', include('Articulo.urls', namespace="uarticulo")),
 
 )

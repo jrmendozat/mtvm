@@ -21,10 +21,12 @@ class ClienteTelefonoForm(ModelForm):
 class EmailForm(ModelForm):
     class Meta:
         model = Email
+        fields = ['email', 'cliente']
 
 class ClienteDireccionForm(ModelForm):
     class Meta:
         model = Cliente_Direccion
+        fields = '__all__'
 
 class ClienteDireccForm(forms.Form):
     direccion = forms.CharField(widget = forms.Textarea )
