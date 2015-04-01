@@ -29,7 +29,7 @@ urlpatterns = patterns('',
     url(r'^cliente_ficha/(?P<id_cli>\d+)/$', views.ver_ficha_cliente, \
         name = 'ver_ficha_cliente'),
     url(r'^cliente_ficha/(?P<id_cli>\d+)/email/nuevo',views.add_email, name = 'add_email'),
-    url(r'^cliente_ficha/(?P<id_cli>\d+)/email/delete/(?P<pk>\d+)$', views.delete_email, \
+    url(r'^cliente_ficha/(?P<id_cli>\d+)/email/delete/(?P<pk>\d+)$', views.eliminarEmail, \
         name='delete_email'),
     url(r'^cliente_ficha/(?P<id_cli>\d+)/email/editar/(?P<pk>\d+)/$', views.edit_email, \
         name = 'edit_email'),

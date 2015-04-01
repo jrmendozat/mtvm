@@ -126,5 +126,9 @@ var focuEmail = $('#id_email');
 
 $('.eliminar1').click(function(evento){
     var oID = $(this).attr("id");
-    document.getElementById("eliminarO").setAttribute("href", "delete/" + oID);
+    document.getElementById("eliminarO").setAttribute("href", " "+"delete/" + oID);
+})
+$('.eliminar2').click(function(evento){
+    var oID = $(this).attr("id");
+    document.getElementById("eliminarO").setAttribute("href", "email/"+"delete/" + oID);
 })
