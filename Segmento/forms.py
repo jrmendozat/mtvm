@@ -5,6 +5,7 @@ from Segmento.models import Segmento
 class SegmentoForm(ModelForm):
     class Meta:
         model = Segmento
+        fields = '__all__'
 
 #formularios de busqueda
 class SegmentoSearchForm(SearchForm):

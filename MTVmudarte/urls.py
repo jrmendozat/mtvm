@@ -27,7 +27,13 @@ urlpatterns = patterns('',
     url(r'^registro/', 'inicio.views.registro', name = 'registro'),
     url(r'^direccion/', include('Direccion.urls', namespace="udireciones")),
     url(r'^search/', include('haystack.urls')),
+<<<<<<< HEAD
 
+=======
+    url(r'^sede/', include('Sede.urls', namespace="usede")),
+    url(r'^mueble/', include('Mueble.urls', namespace="umueble")),
+    url(r'^articulo/', include('Articulo.urls', namespace="uarticulo")),
+>>>>>>> yusnel
 
 )
 
