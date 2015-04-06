@@ -9,6 +9,9 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    (r'^static/(?P<path>.*)$',
+        'django.views.static.serve',
+        {'document_root': 'static'}),
     # Examples:
     url(r'^$', 'inicio.views.pantalla_inicial', name = 'pantalla_inicial' ),
     # url(r'^blog/', include('blog.urls')),
@@ -27,5 +30,6 @@ urlpatterns = patterns('',
     url(r'^sede/', include('Sede.urls', namespace="usede")),
     url(r'^mueble/', include('Mueble.urls', namespace="umueble")),
     url(r'^articulo/', include('Articulo.urls', namespace="uarticulo")),
+    url(r'^proveedor/', include('Proveedor.urls', namespace="uproveedor")),
 
 )

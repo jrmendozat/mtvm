@@ -60,6 +60,7 @@ INSTALLED_APPS = (
     'Trabajador',
     'Mueble',
     'Articulo',
+    'Proveedor',
 )
 
 HAYSTACK_CONNECTIONS = {
@@ -125,10 +126,17 @@ FILE_CHARSET = 'utf-8'
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 # ############### modificado por Yohandri ###########################<---------
 
-STATIC_ROOT = ''
+STATIC_ROOT = '/static/'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     )
 # ############### fin modificacion por Yohandri ######################<--------
+
+TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.contrib.messages.context_processors.messages")
