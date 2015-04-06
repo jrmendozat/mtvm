@@ -34,6 +34,5 @@ def error(request):
 def error4(request):
     return HttpResponseNotFound(render_to_string('404.html'))
 
-def custom_404(request, template_name = '404.html'):
-
-     return HttpResponse('<h2 style="text-align: center;"><br /><br />Esto es un error 404: pagina no encontrada.</h2>')
+def custom_404(request):
+    return HttpResponse('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"><h2 style="text-align: center;" class="page-header"><br /><br />Esto es un error 404: <small>pagina no encontrada.</small></h2>')
