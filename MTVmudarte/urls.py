@@ -31,5 +31,4 @@ urlpatterns = patterns('',
     url(r'^mueble/', include('Mueble.urls', namespace="umueble")),
     url(r'^articulo/', include('Articulo.urls', namespace="uarticulo")),
     url(r'^proveedor/', include('Proveedor.urls', namespace="uproveedor")),
-
 )
