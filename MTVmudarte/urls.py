@@ -30,6 +30,7 @@ urlpatterns = patterns('',
     url(r'^sede/', include('Sede.urls', namespace="usede")),
     url(r'^mueble/', include('Mueble.urls', namespace="umueble")),
     url(r'^articulo/', include('Articulo.urls', namespace="uarticulo")),
+    url(r'^proveedor/', include('Proveedor.urls', namespace="uproveedor")),
 )
 
 
