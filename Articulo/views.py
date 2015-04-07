@@ -199,6 +199,7 @@ def add_articuloprecio(request):
     return render_to_response('articulo/articuloprecio_add.html', \
         {'form_articuloprecio':form_articuloprecio, 'create': True}, \
         context_instance = RequestContext(request))
+
 # editar un registro
 def editar_articuloclase(request, pk):
 

@@ -20,7 +20,7 @@ class Cliente(models.Model):
     monto_credito = models.DecimalField(max_digits=10, decimal_places=2, blank=True)
     segmento = models.ForeignKey(Segmento, blank=True)
     #login = models.ForeignKey(User)
-    sitio_web = models.CharField(max_length=250, blank=True)
+    sitio_web = models.URLField() #models.CharField(max_length=250, blank=True)
     comentarios = models.TextField(blank=True)
     adicional1 = models.CharField(max_length=50, blank=True)
     adicional2 = models.CharField(max_length=50, blank=True)

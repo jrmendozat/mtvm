@@ -1,5 +1,6 @@
 from django.db import models
 from Tipo_cliente.models import Tipo_precio
+from Proveedor.models import Proveedor
 
 # Create your models here.
 class Articulo_Clase(models.Model):
@@ -131,7 +132,7 @@ class Articulo_Costo(models.Model):
         return u'%s %s'%(self.articulo, self.tipo_costo)
 
     class Meta:
-        verbose_name_plural = "Articulos Costos"
+        verbose_name_plural = "Costos de Articulos"
 
 class Unidad(models.Model):
     """docstring for Unidad"""
@@ -192,7 +193,7 @@ class Articulo_Proveedor(models.Model):
         super(Articulo_Proveedor, self).__init__(*args, **kwargs)
 
     articulo = models.ForeignKey(Articulo)
-    proveedor = models.IntegerField()#models.ForeignKey()
+    proveedor = models.ForeignKey(Proveedor)
     observacion = models.TextField()
     adicional1 = models.CharField(max_length=250, blank=True)
     adicional2 = models.CharField(max_length=250, blank=True)
@@ -203,4 +204,4 @@ class Articulo_Proveedor(models.Model):
         return u'%s %s'%(self.activo, self.proveedor)
 
     class Meta:
-        verbose_name_plural = "Provedores de Articulos"
+        verbose_name_plural = "Proveedores de Articulos"
