@@ -2,11 +2,11 @@
 {% block contenido_index %} {% endblock contenido_index %}
 {% block confirmar %}{% endblock confirmar %}
 {% block ver_datos_basicos %}
+<p><a href="nuevo/">Nuevo</a></p>
 {% if lista_tamaniomueble %}
 <div class="col-md-1"></div>
 <div class="col-md-4">
   <a href="../" class="btn btn-default">Regresar</a><br><br>
-  <p><a href="tamanio_mueble/nuevo/">Nuevo</a></p>
   <table class="table table-hover">
    <tr class="active">
     <th>tipo_tamanio</th>
@@ -18,7 +18,7 @@
    <td>{{ i.activo }}</td>
 
    <td><a href="tamanio_mueble/editar/{{i.id}}/">Editar</a></td>
-   <td>{# <a href="delete/{{i.id}}">delete</a> #}</td>
+   <td><a href="delete/{{i.id}}">delete</a></td>
  </tr>
  {% endfor %}
 </table>

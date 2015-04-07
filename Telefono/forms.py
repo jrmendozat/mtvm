@@ -1,7 +1,7 @@
 #encoding:utf-8
 from django.forms import ModelForm
 from django import forms
-from Telefono.models import Telefono
+from Telefono.models import Telefono, Tipo_telefono
 
 #class form
 class PruebaForm(forms.Form):
@@ -12,4 +12,9 @@ class PruebaForm(forms.Form):
 class TelefonoForm(ModelForm):
     class Meta:
         model = Telefono
+        fields = '__all__'
 
+class TipoTelefonoForm(ModelForm):
+    class Meta:
+        model = Tipo_telefono
+        fields = '__all__'

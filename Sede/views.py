@@ -75,15 +75,13 @@ def add_ambiente(request):
         {'form_ambiente':form_ambiente, \
         'create': True}, context_instance = RequestContext(request))
 
-
 # editar un registro
-
 def edit_sede(request, pk):
 
     sede = Sede.objects.get(pk = pk)
 
     if request.method == 'POST':
-        # formform_tipoclienteulario enviado
+        # formulario enviado
         form_edit_sede = SedeForm(request.POST, instance=sede)
 
         if form_edit_sede.is_valid():
@@ -91,7 +89,6 @@ def edit_sede(request, pk):
             form_edit_sede.save()
 
             return HttpResponseRedirect(reverse('usede:lista_tiposede'))
-
     else:
         # formulario inicial
         form_edit_sede = SedeForm(instance=sede)
