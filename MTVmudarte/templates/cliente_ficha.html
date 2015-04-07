@@ -17,65 +17,36 @@
     {% for i in cliente_individual %}
 
     <p class="color">
-        {% if i.nombre_principal %}
         <span class=""><strong>Nombre principal:</strong></span>
         {{ i.nombre_principal }}
-        {% else %}
-        {% endif %}
     </p>
-
     <p class="color">
-        {% if i.tipo_cliente %}
         <span class=""><strong>Tipo de cliente:</strong></span>
         {{ i.tipo_cliente }}
-        {% else %}
-        {% endif %}
     </p>
     <p class="color">
-        {% if i.tipo_cliente.precio %}
         <span class=""><strong>Tipo de precio:</strong></span>
         {{ i.tipo_cliente.precio }}
-        {% else %}
-        {% endif %}
     </p>
     <p class="color">
-        {% if i.condicion_pago %}
         <span class=""><strong>Condición de pago: </strong></span>
         {{ i.condicion_pago }}
-        {% else %}
-        {% endif %}
     </p>
     <p class="color">
-        {% if i.monto_credito %}
         <span class=""><strong>Monto de credito: </strong></strong></span>
         {{ i.monto_credito }}
-        {% else %}
-        {% endif %}
     </p>
-
     <p class="color">
-        {% if i.segmento %}
         <span class=""><strong>Segmento:</strong>
         {{ i.segmento }}
-        {% else %}
-        {% endif %}
     </p>
-
-
-
     <p class="color">
-        {% if i.sitio_web %}
        <strong> Sitio web:</strong>
         {{ i.sitio_web }}
-        {% else %}
-        {% endif %}
     </p>
     <p class="color">
-        {% if i.comentarios %}
         <strong>Comentarios: </strong>
         {{ i.comentarios }}
-        {% else %}
-        {% endif %}
     </p>
     <p class="color">
         <strong>Estado del cliente: </strong>
@@ -90,32 +61,20 @@
         {% endif %}
     </p>
     <p class="color">
-        {% if i.adicional1 %}
         <strong>Dato adicional 1:</strong>
         {{ i.adicional1 }}
-        {% else %}
-        {% endif %}
     </p>
     <p class="color">
-        {% if i.adicional2 %}
        <strong> Dato adicional 2:</strong>
         {{ i.adicional2 }}
-        {% else %}
-        {% endif %}
     </p>
     <p class="color">
-        {% if i.adicional3 %}
        <strong> Dato adicional 3:</strong>
         {{ i.adicional3 }}
-        {% else %}
-        {% endif %}
     </p>
     <p class="color">
-        {% if i.adicional4 %}
         <strong>Dato adicional 4:</strong>
         {{ i.adicional4 }}
-        {% else %}
-        {% endif %}
     </p>
 
     {% endfor %}
