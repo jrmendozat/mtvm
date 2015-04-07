@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Telefono', '0001_initial'),
+        ('Telefono', '0003_auto_20150319_1627'),
     ]
 
     operations = [
@@ -16,13 +16,13 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('nombre_principal', models.CharField(max_length=250)),
-                ('monto_credito', models.DecimalField(null=True, max_digits=10, decimal_places=2)),
-                ('sitio_web', models.CharField(max_length=250, null=True)),
+                ('monto_credito', models.DecimalField(max_digits=10, decimal_places=2, blank=True)),
+                ('sitio_web', models.CharField(max_length=250, blank=True)),
                 ('comentarios', models.TextField(null=True)),
-                ('adicional1', models.CharField(max_length=50, null=True)),
-                ('adicional2', models.CharField(max_length=50, null=True)),
-                ('adicional3', models.CharField(max_length=50, null=True)),
-                ('adicional4', models.CharField(max_length=50, null=True)),
+                ('adicional1', models.CharField(max_length=50, blank=True)),
+                ('adicional2', models.CharField(max_length=50, blank=True)),
+                ('adicional3', models.CharField(max_length=50, blank=True)),
+                ('adicional4', models.CharField(max_length=50, blank=True)),
                 ('activo', models.BooleanField(default=True)),
             ],
             options={
@@ -35,6 +35,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
             ],
             options={
+                'verbose_name': 'Direccion del cliente',
+                'verbose_name_plural': 'Direcciones del cliente',
             },
             bases=(models.Model,),
         ),
@@ -45,6 +47,8 @@ class Migration(migrations.Migration):
                 ('principal', models.BooleanField(default=True)),
             ],
             options={
+                'verbose_name': 'Empresa del cliente',
+                'verbose_name_plural': 'Empresas del cliente',
             },
             bases=(models.Model,),
         ),
@@ -56,6 +60,8 @@ class Migration(migrations.Migration):
                 ('cliente', models.ForeignKey(to='Cliente.Cliente')),
             ],
             options={
+                'verbose_name': 'Persona del cliente',
+                'verbose_name_plural': 'Personas del cliente',
             },
             bases=(models.Model,),
         ),
@@ -63,10 +69,12 @@ class Migration(migrations.Migration):
             name='Cliente_telefono',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('cliente', models.ForeignKey(to='Cliente.Cliente')),
-                ('telefono', models.OneToOneField(to='Telefono.Telefono')),
+                ('cliente', models.ForeignKey(default=1, to='Cliente.Cliente')),
+                ('telefono', models.OneToOneField(default=1, to='Telefono.Telefono')),
             ],
             options={
+                'verbose_name': 'Telefono del cliente',
+                'verbose_name_plural': 'Telefonos del cliente',
             },
             bases=(models.Model,),
         ),
@@ -75,7 +83,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('email', models.EmailField(max_length=75)),
-                ('cliente', models.ForeignKey(to='Cliente.Cliente')),
+                ('cliente', models.ForeignKey(default=1, to='Cliente.Cliente')),
             ],
             options={
             },

@@ -108,11 +108,10 @@
         formulario de agregar abatible con el boton de agregar
     </p>
     <br>
-    <p><input type="submit" name="comment"
-        value="ver lista" id="toggle-content" />
+    <p>
         lista de emails del cliente con controles
 
-        <div id="extra-content">{% include "Emailcliente_lista.html" %}</div>
+        {% include "Emailcliente_lista.html" %}
 
     </p>
     <br>
@@ -128,8 +127,8 @@
     <br>
     <p>
         lista de direcciones del cliente con controles
-        <input type="submit" name="comment" value="ver lista" id="toggle-content"/>
-        <div id="extra-content">{% include "direccioncliente_lista.html" %}</div>
+
+        {% include "direccioncliente_lista.html" %}
 
     </p>
     <br>

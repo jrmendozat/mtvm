@@ -1,8 +1,8 @@
 #encoding:utf-8
 from django.forms import ModelForm
 from Direccion.models import Direccion, Tipo_direccion
-#class form
 
+#class form
 class DireccionForm(ModelForm):
     class Meta:
         model = Direccion

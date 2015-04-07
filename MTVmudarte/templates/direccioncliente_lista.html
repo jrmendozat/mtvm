@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{# {% extends "base.html" %} #}
 {% block contenido_index %} {% endblock contenido_index %}
 {% block confirmar %}{% endblock confirmar %}
 {% block ver_datos_basicos %}
@@ -9,17 +9,17 @@
   <p><a href="direccion/nuevo/">Nuevo</a></p>
   <table class="table table-hover">
    <tr class="active">
-    <th>cliente</th>
-    <th>direc</th>
-    <th>sede</th>
+    <th>Tipo dirección</th>
+    <th>Dirección</th>
+    <th>Sede</th>
     <th></th>
   </tr>
   {% for i in direccioncliente_lista %}
-  <tr><td>{{ i.cliente }}</td>
+  <tr><td>{{ i.direc.tipo_direccion }}</td>
    <td>{{ i.direc }}</td>
    <td> {% if i.sede %}{{  i.sede }}{% endif %}</td>
    <td><a href="direccion/editar/{{i.id}}/">Editar</a></td>
-   <td><a href="delete/{{i.id}}">delete</a></td>
+   <td>{# <a href="delete/{{i.id}}">delete</a> #}</td>
  </tr>
  {% endfor %}
 </table>
