@@ -96,7 +96,7 @@ def add_proveedor_telefono(request, id_prov):
         telefono_form = TelefonoForm()
         provtel_form = ProveedorTelefonoForm()
 
-    return render_to_response('telefonoproveedor_add.html', \
+    return render_to_response('proveedor/telefonoproveedor_add.html', \
      {'telefono_form':telefono_form,'provtel_form':provtel_form,\
      'id_prov':id_prov, 'create': True}, context_instance = RequestContext(request))
 
@@ -122,7 +122,7 @@ def add_proveedor_direccion(request, id_prov):
         direccion_form = DireccionForm()
         provdir_form = ProveedorDireccionForm()
 
-    return render_to_response('direccionproveedor_add.html', \
+    return render_to_response('proveedor/direccionproveedor_add.html', \
      {'direccion_form':direccion_form,'provdir_form':provdir_form, \
       'id_prov':id_prov, 'create': True}, \
       context_instance = RequestContext(request))
@@ -143,7 +143,7 @@ def add_email_proveedor(request, id_prov):
             return HttpResponseRedirect('../')
     else:
         emailform = EmailProveedorForm()
-    return render_to_response('Emailcliente_add.html', {'emailform':emailform, \
+    return render_to_response('proveedor/emailproveedor_add.html', {'emailform':emailform, \
         'create': True}, context_instance = RequestContext(request))
 
 # editar un registro
@@ -211,7 +211,7 @@ def edit_telefono_proveedor(request, id_prov, pk):
         # formulario inicial
         form_edit_telefono = TelefonoForm(instance=id_telefono)
 
-    return render_to_response('telefonoproveedor_edit.html', \
+    return render_to_response('proveedor/telefonoproveedor_edit.html', \
         {'form_edit_telefono': form_edit_telefono, 'create':False}, \
         context_instance = RequestContext(request))
 
@@ -235,7 +235,7 @@ def edit_direccion_proveedor(request, id_prov, pk):
         # formulario inicial
         form_edit_direccion = DireccionForm(instance=id_direcc)
 
-    return render_to_response('direccionproveedor_edit.html', \
+    return render_to_response('proveedor/direccionproveedor_edit.html', \
         {'form_edit_direccion': form_edit_direccion, 'create':False}, \
         context_instance = RequestContext(request))
 
@@ -257,7 +257,7 @@ def edit_email_proveedor(request,id_prov, pk):
         # formulario inicial
         form_edit_email = EmailProveedorForm(instance=id_email)
 
-    return render_to_response('emailproveedor_edit.html', \
+    return render_to_response('proveedor/emailproveedor_edit.html', \
         {'form_edit_email': form_edit_email, 'create':False}, \
         context_instance = RequestContext(request))
 
