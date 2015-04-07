@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response, render, get_object_or_404
 from Cliente.forms import ClienteForm, ClienteTelefonoForm, EmailForm,\
- ClienteDireccionForm
+ ClienteDireccionForm #, ClienteDireccForm
 from Cliente.models import Cliente, Email, Cliente_telefono, Cliente_Direccion
 from Telefono.forms import TelefonoForm
 from Telefono.models import Telefono
@@ -117,15 +117,10 @@ def add_direccion_cliente(request, id_cli):
     if request.method == 'POST':
 
         direccion_form = DireccionForm(request.POST)
-        sede_form = SedeForm(request.POST)
 
         if direccion_form.is_valid():
             obj_dir = direccion_form.save()
             direc = Direccion.objects.get(id = obj_dir.id)
-
-        if sede_form.is_valid():
-            obj_sede = sede_form.save()
-            sede = Sede.objects.get(id = obj_sede.id)
 
         clidir_form = ClienteDireccionForm(request.POST)
         if clidir_form.is_valid():
@@ -133,8 +128,66 @@ def add_direccion_cliente(request, id_cli):
             #luego de hacer el save anterior le metodo el ID al siguiente y listo
             formResult2.cliente = cliente
             formResult2.direc = direc
-            formResult2.sede = sede
             formResult2.save()
+    else:
+        direccion_form = DireccionForm()
+        clidir_form = ClienteDireccionForm()
+
+    return render_to_response('direccioncliente_add.html', \
+     {'direccion_form':direccion_form,'clidir_form':clidir_form, \
+      'id_cli':id_cli, 'create': True}, \
+      context_instance = RequestContext(request))
+
+def add_direccion_sede_cliente(request, id_cli):
+
+    cliente = Cliente.objects.get(id = id_cli)
+    if request.method == 'POST':
+
+        direccion_form = DireccionForm(request.POST)
+        sede_form = SedeForm(request.POST)
+
+        if direccion_form.is_valid():
+            obj_dir = direccion_form.save()
+            direc = Direccion.objects.get(id = obj_dir.id)
+
+            # obj_dir = Direccion(direccion = request.POST["direccion"],\
+            #     punto_referencia = request.POST["punto_referencia"],\
+            #     zip1 = request.POST["zip1"],\
+            #     tipo_direccion=request.POST["tipo_direccion"],\
+            #     zona=request.POST["zona"])
+            # obj_dir.save()
+            #direc = Direccion.objects.get(id = obj_dir.id)
+
+        if sede_form.is_valid():
+            # obj_sede = sede_form.save(commit = False)
+            # obj_sede.tipo_sede = sede_form.cleaned_data['tipo_sede']
+            # obj_sede.sede1 = sede_form.cleaned_data['sede1']
+            # obj_sede.piso = sede_form.cleaned_data['piso']
+            # obj_sede.piso_por_escalera = sede_form.cleaned_data['piso_por_escalera']
+            # obj_sede.numero_ambiente = sede_form.cleaned_data['numero_ambiente']
+            obj_sede = sede_form.save()
+            sede = Sede.objects.get(id = obj_sede.id)
+
+            clidir_form = ClienteDireccionForm(request.POST)
+            if clidir_form.is_valid():
+
+                formResult2 = clidir_form.save(commit = False)
+                #luego de hacer el save anterior le metodo el ID al siguiente y listo
+                formResult2.cliente = cliente
+                formResult2.direc = direc
+                formResult2.sede1 = sede
+                formResult2.save()
+        else:
+            clidir_form = ClienteDireccionForm(request.POST)
+
+            if clidir_form.is_valid():
+                formResult2 = clidir_form.save(commit = False)
+                #luego de hacer el save anterior le metodo el ID al siguiente y listo
+                formResult2.cliente = cliente
+                formResult2.direc = direc
+                formResult2.save()
+        return HttpResponseRedirect('../../')
+
     else:
         direccion_form = DireccionForm()
         sede_form = SedeForm()

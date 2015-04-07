@@ -21,7 +21,7 @@ class Cliente(models.Model):
     segmento = models.ForeignKey(Segmento, blank=True)
     #login = models.ForeignKey(User)
     sitio_web = models.CharField(max_length=250, blank=True)
-    comentarios = models.TextField(null=True)
+    comentarios = models.TextField(blank=True)
     adicional1 = models.CharField(max_length=50, blank=True)
     adicional2 = models.CharField(max_length=50, blank=True)
     adicional3 = models.CharField(max_length=50, blank=True)
@@ -42,7 +42,7 @@ class Email(models.Model):
 class Cliente_Direccion(models.Model):
     cliente = models.ForeignKey(Cliente, default=1)
     direc = models.OneToOneField(Direccion, default=1, blank=True)
-    sede = models.OneToOneField(Sede, blank=True)
+    sede1 = models.OneToOneField(Sede, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s - %s'%(self.cliente, self.direc)
