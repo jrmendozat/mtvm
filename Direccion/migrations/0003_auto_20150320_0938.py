@@ -7,14 +7,14 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Sede', '0005_auto_20150327_1534'),
+        ('Direccion', '0002_auto_20150319_1627'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='ambiente',
-            name='ambiente',
-            field=models.ForeignKey(to='Sede.Tipo_Ambiente'),
-            preserve_default=True,
+            model_name='direccion',
+            name='zip1',
+            field=models.CharField(default=True, max_length=10, blank=True),
+            preserve_default=False,
         ),
     ]

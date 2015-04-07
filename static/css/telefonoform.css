@@ -30,7 +30,7 @@ form{
   outline: 0;
         }
         label{
-            display: none;
+            display:block;
         }
         p{
             display:inline;

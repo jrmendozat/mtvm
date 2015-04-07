@@ -1,0 +1,126 @@
+﻿Merge branch 'master' into yusnel
+
+Conflicts:
+	Cliente/models.py
+	MTVmudarte/settings.py
+	MTVmudarte/urls.py
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch yusnel
+# Your branch is up-to-date with 'origin/yusnel'.
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   Cliente/forms.py
+#	modified:   Cliente/migrations/0001_initial.py
+#	renamed:    Cliente/migrations/0002_auto_20150326_1417.py -> Cliente/migrations/0002_auto_20150310_1110.py
+#	new file:   Cliente/migrations/0003_auto_20150313_1546.py
+#	deleted:    Cliente/migrations/0003_auto_20150326_1614.py
+#	new file:   Cliente/migrations/0004_auto_20150317_1531.py
+#	new file:   Cliente/migrations/0005_auto_20150319_1627.py
+#	new file:   Cliente/migrations/0006_auto_20150320_0945.py
+#	new file:   Cliente/migrations/0007_auto_20150320_0952.py
+#	renamed:    Cliente/migrations/0004_auto_20150327_1015.py -> Cliente/migrations/0008_auto_20150325_1005.py
+#	deleted:    Cliente/models.py
+#	modified:   Cliente/urls.py
+#	modified:   Cliente/views.py
+#	deleted:    Condicion_pago/forms.py
+#	modified:   Condicion_pago/models.py
+#	modified:   Condicion_pago/views.py
+#	modified:   Direccion/forms.py
+#	modified:   Direccion/migrations/0001_initial.py
+#	new file:   Direccion/migrations/0002_auto_20150319_1627.py
+#	renamed:    Sede/migrations/0004_sede_sede.py -> Direccion/migrations/0003_auto_20150320_0938.py
+#	renamed:    Direccion/migrations/0001_initial.py -> Direccion/migrations/0004_auto_20150325_1005.py
+#	modified:   Direccion/urls.py
+#	modified:   Direccion/views.py
+#	modified:   Empresa/migrations/0001_initial.py
+#	new file:   Empresa/migrations/0002_auto_20150325_1005.py
+#	modified:   Llamadas/migrations/0001_initial.py
+#	deleted:    Llamadas/migrations/0003_auto_20150326_1614.py
+#	new file:   MTVmudarte/404.html
+#	new file:   MTVmudarte/500.html
+#	deleted:    MTVmudarte/settings.py
+#	new file:   MTVmudarte/templates/404.html
+#	new file:   MTVmudarte/templates/500.html
+#	modified:   MTVmudarte/templates/Emailcliente_lista.html
+#	modified:   MTVmudarte/templates/base.html
+#	modified:   MTVmudarte/templates/cliente_add.html
+#	renamed:    MTVmudarte/templates/sede/sede_add.html -> MTVmudarte/templates/cliente_edit.html
+#	modified:   MTVmudarte/templates/cliente_ficha.html
+#	modified:   MTVmudarte/templates/cliente_lista.html
+#	modified:   MTVmudarte/templates/condicionpago_edit.html
+#	modified:   MTVmudarte/templates/condicionpago_lista.html
+#	modified:   MTVmudarte/templates/direccioncliente_add.html
+#	modified:   MTVmudarte/templates/direccioncliente_lista.html
+#	deleted:    MTVmudarte/templates/mueble/mueble_lista.html
+#	deleted:    MTVmudarte/templates/mueble/tamaniomueble_add.html
+#	deleted:    MTVmudarte/templates/sede/ambiente_add.html
+#	deleted:    MTVmudarte/templates/sede/ambiente_edit.html
+#	deleted:    MTVmudarte/templates/sede/ambiente_lista.html
+#	deleted:    MTVmudarte/templates/sede/sede_edit.html
+#	deleted:    MTVmudarte/templates/sede/sede_lista.html
+#	deleted:    MTVmudarte/templates/sede/tipoambiente_add.html
+#	deleted:    MTVmudarte/templates/sede/tipoambiente_edit.html
+#	deleted:    MTVmudarte/templates/sede/tipoambiente_lista.html
+#	deleted:    MTVmudarte/templates/sede/tiposede_add.html
+#	deleted:    MTVmudarte/templates/sede/tiposede_edit.html
+#	modified:   MTVmudarte/templates/segmento_edit.html
+#	modified:   MTVmudarte/templates/segmento_lista.html
+#	modified:   MTVmudarte/templates/server_confirm_delete.html
+#	modified:   MTVmudarte/templates/telefonocliente_edit.html
+#	modified:   MTVmudarte/templates/telefonocliente_lista.html
+#	modified:   MTVmudarte/templates/tipocliente_add.html
+#	modified:   MTVmudarte/templates/tipocliente_lista.html
+#	modified:   MTVmudarte/templates/tipoprecio_edit.html
+#	modified:   MTVmudarte/templates/tipoprecio_lista.html
+#	renamed:    MTVmudarte/templates/sede/tiposede_lista.html -> MTVmudarte/templates/tiposede_lista.html
+#	deleted:    MTVmudarte/urls.py
+#	new file:   MTVmudarte/views.py
+#	deleted:    Mueble/admin.py
+#	deleted:    Mueble/forms.py
+#	deleted:    Mueble/migrations/0001_initial.py
+#	deleted:    Mueble/migrations/0002_auto_20150327_1608.py
+#	deleted:    Mueble/models.py
+#	renamed:    Mueble/__init__.py -> Pais/__init__.py
+#	new file:   Pais/admin.py
+#	new file:   Pais/desktop.ini
+#	new file:   Pais/migrations/0001_initial.py
+#	new file:   Pais/migrations/0002_auto_20150319_1627.py
+#	new file:   Pais/migrations/0003_auto_20150325_1005.py
+#	renamed:    Mueble/migrations/__init__.py -> Pais/migrations/__init__.py
+#	new file:   Pais/migrations/desktop.ini
+#	new file:   Pais/models.py
+#	renamed:    Mueble/tests.py -> Pais/tests.py
+#	new file:   Pais/views.py
+#	modified:   Persona/migrations/0001_initial.py
+#	new file:   Persona/migrations/0002_auto_20150325_1005.py
+#	modified:   Persona/models.py
+#	modified:   Sede/admin.py
+#	modified:   Sede/forms.py
+#	modified:   Sede/migrations/0001_initial.py
+#	modified:   Sede/migrations/0002_auto_20150319_1627.py
+#	modified:   Sede/migrations/0003_auto_20150325_1005.py
+#	deleted:    Sede/migrations/0005_auto_20150327_1534.py
+#	deleted:    Sede/migrations/0006_auto_20150327_1556.py
+#	modified:   Sede/models.py
+#	deleted:    Sede/urls.py
+#	modified:   Sede/views.py
+#	modified:   Segmento/urls.py
+#	modified:   Segmento/views.py
+#	modified:   Tipo_cliente/views.py
+#	modified:   static/css/estilos.css
+#	modified:   static/css/telefonoform.css
+#	modified:   static/js/script.js
+#	modified:   static/js/telefono-ajax.js
+#	new file:   static/telefono-ajax.js
+#
+

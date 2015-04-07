@@ -18,8 +18,8 @@ def add_segmento(request):
     if request.method == 'POST':
         form_segmento = SegmentoForm(request.POST, request.FILES)
         if form_segmento.is_valid():
-            form_segmento.save()
-            return HttpResponseRedirect(reverse('usegmentos:segmento_lista'))
+          form_segmento.save()
+        return HttpResponseRedirect(reverse('usegmentos:segmento_lista'))
     else:
         form_segmento = SegmentoForm()
     return render_to_response('add_segmento.html', \
@@ -55,21 +55,30 @@ def delete_segmento(request, pk, template_name='server_confirm_delete.html'):
         return HttpResponseRedirect(reverse('usegmentos:lista_segmento'))
     return render(request, template_name, {'object':segmento})
 
-def mensaje_eliminar(request, pk):
+def mensaje_eliminar(request, pk, template_name='server_confirm_delete.html'):
 
      segmento = get_object_or_404(Segmento, pk=pk)
      if request.method == 'POST':
         segmento.delete()
+        return HttpResponseRedirect(reverse('usegmentos:lista_segmento'))
+     return render(request, 'segmento_lista.html', {'object':segmento})
 
 
-def eliminar(request,pk):
+def eliminar(request, pk, template_name='segmento_lista.html'):
 
-    html = "<script>alert('alerta');</script>"
-    return HttpResponse(html)
+        segmento = get_object_or_404(Segmento, pk=pk)
+        segmento.delete()
+
+        return HttpResponseRedirect(reverse('usegmentos:lista_segmento'))
+        eliminar.alters_data = True
+        html = "<script>alert('Registro eliminado');</script>"
+        return HttpResponse(html)
+
+
 
 
 #vista para la busqueda
 def segmentos(request):
     formseg = SegmentoSearchForm(request.GET)
     segmentos = formseg.search()
-    return render_to_response('search/indexes/Segmento/segmento.html', {'segmentos': segmentos})
+    return render_to_response('search/indexes/Segmento/segmento.html', {'segmentos':segmentos})

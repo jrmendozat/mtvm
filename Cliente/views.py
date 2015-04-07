@@ -1,16 +1,14 @@
 from django.shortcuts import render_to_response, render, get_object_or_404
 from Cliente.forms import ClienteForm, ClienteTelefonoForm, EmailForm,\
- ClienteDireccionForm #, ClienteDireccForm
-from Cliente.models import Cliente, Email, Cliente_telefono, Cliente_Direccion
+ ClienteDireccionForm
 from Telefono.forms import TelefonoForm
-from Telefono.models import Telefono
 from Direccion.forms import DireccionForm
-from Direccion.models import Direccion
-from Sede.forms import SedeForm
-from Sede.models import Sede
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
+from Cliente.models import Cliente, Email, Cliente_telefono, Cliente_Direccion
+from Telefono.models import Telefono
+from Direccion.models import Direccion
 from django.forms.formsets import formset_factory
 
 
@@ -20,6 +18,7 @@ def list_cliente(request):
     list_clie = Cliente.objects.all()
     context = {'list_clie': list_clie}
     return render(request, 'cliente_lista.html', context)
+
 
 def lista_email(request, id_cli):
 
@@ -76,7 +75,8 @@ def add_telefono_cliente(request, id_cli):
         if telefono_form.is_valid():
             obj_tel = telefono_form.save()
             telefono = Telefono.objects.get(id = obj_tel.id)
-
+            obj_tel.save()
+            return HttpResponseRedirect('../../')
         clitel_form = ClienteTelefonoForm(request.POST)
         if clitel_form.is_valid():
             formResult2 = clitel_form.save(commit = False)
@@ -84,6 +84,7 @@ def add_telefono_cliente(request, id_cli):
             formResult2.cliente = cliente
             formResult2.telefono = telefono
             formResult2.save()
+            return HttpResponseRedirect('../../')
     else:
         telefono_form = TelefonoForm()
         clitel_form = ClienteTelefonoForm()
@@ -105,7 +106,7 @@ def add_email(request, id_cli):
             formu.cliente = cliente
             formu.save()
 
-            return HttpResponseRedirect('../')
+            return HttpResponseRedirect('../../')
     else:
         emailform = EmailForm()
     return render_to_response('Emailcliente_add.html', {'emailform':emailform, \
@@ -134,69 +135,8 @@ def add_direccion_cliente(request, id_cli):
         clidir_form = ClienteDireccionForm()
 
     return render_to_response('direccioncliente_add.html', \
-     {'direccion_form':direccion_form,'clidir_form':clidir_form, \
-      'id_cli':id_cli, 'create': True}, \
-      context_instance = RequestContext(request))
-
-def add_direccion_sede_cliente(request, id_cli):
-
-    cliente = Cliente.objects.get(id = id_cli)
-    if request.method == 'POST':
-
-        direccion_form = DireccionForm(request.POST)
-        sede_form = SedeForm(request.POST)
-
-        if direccion_form.is_valid():
-            obj_dir = direccion_form.save()
-            direc = Direccion.objects.get(id = obj_dir.id)
-
-            # obj_dir = Direccion(direccion = request.POST["direccion"],\
-            #     punto_referencia = request.POST["punto_referencia"],\
-            #     zip1 = request.POST["zip1"],\
-            #     tipo_direccion=request.POST["tipo_direccion"],\
-            #     zona=request.POST["zona"])
-            # obj_dir.save()
-            #direc = Direccion.objects.get(id = obj_dir.id)
-
-        if sede_form.is_valid():
-            # obj_sede = sede_form.save(commit = False)
-            # obj_sede.tipo_sede = sede_form.cleaned_data['tipo_sede']
-            # obj_sede.sede1 = sede_form.cleaned_data['sede1']
-            # obj_sede.piso = sede_form.cleaned_data['piso']
-            # obj_sede.piso_por_escalera = sede_form.cleaned_data['piso_por_escalera']
-            # obj_sede.numero_ambiente = sede_form.cleaned_data['numero_ambiente']
-            obj_sede = sede_form.save()
-            sede = Sede.objects.get(id = obj_sede.id)
-
-            clidir_form = ClienteDireccionForm(request.POST)
-            if clidir_form.is_valid():
-
-                formResult2 = clidir_form.save(commit = False)
-                #luego de hacer el save anterior le metodo el ID al siguiente y listo
-                formResult2.cliente = cliente
-                formResult2.direc = direc
-                formResult2.sede1 = sede
-                formResult2.save()
-        else:
-            clidir_form = ClienteDireccionForm(request.POST)
-
-            if clidir_form.is_valid():
-                formResult2 = clidir_form.save(commit = False)
-                #luego de hacer el save anterior le metodo el ID al siguiente y listo
-                formResult2.cliente = cliente
-                formResult2.direc = direc
-                formResult2.save()
-        return HttpResponseRedirect('../../')
-
-    else:
-        direccion_form = DireccionForm()
-        sede_form = SedeForm()
-        clidir_form = ClienteDireccionForm()
-
-    return render_to_response('direccioncliente_add.html', \
-     {'direccion_form':direccion_form,'clidir_form':clidir_form, \
-     'sede_form':sede_form, 'id_cli':id_cli, 'create': True}, \
-      context_instance = RequestContext(request))
+     {'direccion_form':direccion_form,'clidir_form':clidir_form,\
+     'id_cli':id_cli, 'create': True}, context_instance = RequestContext(request))
 
 # editar un registro
 def editar_cliente(request, id_cli):
@@ -295,12 +235,19 @@ def delete_email(request, id_cli, pk, template_name='server_confirm_delete.html'
         return HttpResponseRedirect('../')
     return render(request, template_name, {'object':email})
 
+def eliminarEmail(request, id_cli, pk, template_name='emailcliente_lista.html'):
+
+        email = get_object_or_404(Email, pk=pk)
+        email.delete()
+
+        return HttpResponseRedirect('../../')
+
+
 def delete_telefono_cliente(request, id_cli, pk, template_name='server_confirm_delete.html'):
-    telefono = get_object_or_404(Telefono, pk=pk)
-    if request.method == 'POST':
+        telefono = get_object_or_404(Telefono, pk=pk)
         telefono.delete()
-        return HttpResponseRedirect('../')
-    return render(request, template_name, {'object':telefono})
+
+        return HttpResponseRedirect('../../')
 
 def add_telefono_cliente2(request, id_cli):
 

@@ -1,34 +1,45 @@
-{# {% extends "base.html" %}#}
-{% block contenido_index %} {% endblock contenido_index %}
-{% block confirmar %}{% endblock confirmar %}
 {% block ver_datos_basicos %}
 {% if lista_email %}
-<div class="col-md-1"></div>
-<div class="col-md-4">
-    <h2>Listado de email del cliente </h2>
-    <a href="email/nuevo/" class="btn btn-default">Nuevo</a>
-    <br>
-    <h6>Cantidad de email encontrados: <span class="badge">{{ lista_email.count }}</span> </h6>
+
+    <h4>Listado de correo</h4>
+
+    <h6>Cantidad de correos encontrados: <span class="badge">{{ lista_email.count }}</span> </h6>
     <table class="table table-hover">
         <tr class="active">
             <th>Email</th>
             <th>Cliente</th>
-            <th></th>
-            <th></th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
         {% for i in lista_email %}
         <tr>
             <td>{{ i.email }}</td>
             <td>{{ i.cliente.nombre_principal }}</td>
             <td><a href="email/editar/{{i.id}}/" class="glyphicon glyphicon-edit"></a></td>
-            <td><a href="email/delete/{{i.id}}" class="glyphicon glyphicon-remove"></a></td>
+            <td><a id="{{i.id}}" href="#" class="eliminar2 glyphicon glyphicon-remove" data-toggle="modal" data-target=".eliminarE"></a></td>
         </tr>
         {% endfor %}
     </table>
-    <a href="email/nuevo/" class="btn btn-default">Nuevo</a>
-</div>
+    <a href="email/nuevo/" class="btn btn-default">Agregar</a>
+
 {% else %}
-no halle na
-<a href="email/nuevo/" class="btn btn-default">Nuevo</a>
+<h4>Listado de correo</h4>
+<br>
+<br>
+<p> Correo no encontrado </p>
+<a href="email/nuevo/" class="btn btn-default">Agregar</a>
 {% endif %}
 {% endblock ver_datos_basicos %}
+{% block confirmar %}
+<div class="modal fade eliminarE" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content well well-lg">
+      <h3 class="bg-primary" style="text-align: center;">¿ Eliminar Email ?</h3>
+      <br>
+      <br>
+      <a id="eliminarO" href="" class="btn btn-default btn-xs btn-block">Si</a>
+      <a href="" class="btn btn-default btn-xs btn-block">No</a>
+  </div>
+</div>
+</div>
+{% endblock confirmar %}

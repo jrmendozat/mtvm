@@ -1,7 +1,6 @@
 #encoding:utf-8
 from django.forms import ModelForm
-from Sede.models import Tipo_sede, Sede, Tipo_Ambiente, Ambiente
-from django import forms
+from Sede.models import Tipo_sede, Sede
 
 #class form
 class TipoSedeForm(ModelForm):
@@ -12,6 +11,8 @@ class TipoSedeForm(ModelForm):
 class SedeForm(ModelForm):
     class Meta:
         model = Sede
+<<<<<<< HEAD
+=======
         fields = '__all__'
 
 class TipoAmbienteForm(ModelForm):
@@ -30,3 +31,4 @@ class ClienteSedeForm(forms.Form):
     piso = forms.IntegerField()
     piso_por_escalera = forms.IntegerField()
     numero_ambiente = forms.IntegerField()
+>>>>>>> yusnel

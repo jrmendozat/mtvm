@@ -7,7 +7,8 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Telefono', '0003_auto_20150319_1627'),
+        ('Direccion', '0001_initial'),
+        ('Telefono', '0001_initial'),
     ]
 
     operations = [
@@ -16,12 +17,12 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('apellido1', models.CharField(max_length=100)),
-                ('apellido2', models.CharField(max_length=100, blank=True)),
+                ('apellido2', models.CharField(max_length=100, null=True)),
                 ('nombre1', models.CharField(max_length=100)),
-                ('nombre2', models.CharField(max_length=100, blank=True)),
-                ('documento_identidad', models.CharField(max_length=50, blank=True)),
-                ('documento_fiscal', models.CharField(max_length=50, blank=True)),
-                ('comentarios', models.TextField(blank=True)),
+                ('nombre2', models.CharField(max_length=100, null=True)),
+                ('documento_identidad', models.CharField(max_length=50, null=True)),
+                ('documento_fiscal', models.CharField(max_length=50, null=True)),
+                ('comentarios', models.TextField(null=True)),
             ],
             options={
             },
@@ -31,6 +32,7 @@ class Migration(migrations.Migration):
             name='Persona_Direccion',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('direccion', models.OneToOneField(to='Direccion.Direccion')),
                 ('persona', models.ForeignKey(to='Persona.Persona')),
             ],
             options={
@@ -74,7 +76,7 @@ class Migration(migrations.Migration):
             name='Sexo',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('sexo', models.CharField(unique=True, max_length=25)),
+                ('sexo', models.CharField(max_length=25)),
             ],
             options={
             },
@@ -115,7 +117,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='persona',
             name='tratamiento',
-            field=models.ForeignKey(to='Persona.Tratamiento', blank=True),
+            field=models.ForeignKey(to='Persona.Tratamiento', null=True),
             preserve_default=True,
         ),
     ]

@@ -12,8 +12,8 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterField(
-            model_name='Tipo_Ambiente',
-            name='Tipo_Ambiente',
+            model_name='tipo_ambiente',
+            name='tipo_ambiente',
             field=models.CharField(unique=True, max_length=50),
             preserve_default=True,
         ),

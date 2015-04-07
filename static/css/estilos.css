@@ -56,3 +56,15 @@
   overflow: hidden;
   background-color: #e5e5e5;
 }
+.mensaje{
+    z-index: 1000;
+    left: 750px;
+    bottom: 40px;
+}
+.color{
+
+   padding: 0px;
+}
+.color:hover{
+
+}

@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='Tipo_Ambiente',
+            name='Tipo_ambiente',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('tipo_ambiente', models.CharField(max_length=50)),
@@ -60,7 +60,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='ambiente',
             name='ambiente',
-            field=models.ForeignKey(to='Sede.Tipo_Ambiente'),
+            field=models.ForeignKey(to='Sede.Tipo_ambiente'),
             preserve_default=True,
         ),
         migrations.AddField(

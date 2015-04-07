@@ -16,7 +16,6 @@ class Tipo_sede(models.Model):
 class Sede(models.Model):
 
     tipo = models.ForeignKey(Tipo_sede)
-    sede = models.CharField(max_length=250)
     piso = models.IntegerField(default=0)
     piso_por_escalera = models.IntegerField(default=0)
     numero_ambiente = models.IntegerField(default=1)
@@ -29,7 +28,7 @@ class Sede(models.Model):
         verbose_name = "Sede"
         verbose_name_plural = "Sedes"
 
-class Tipo_Ambiente(models.Model):
+class Tipo_ambiente(models.Model):
 
     tipo_ambiente = models.CharField(max_length=50, unique=True)
 
@@ -42,7 +41,7 @@ class Tipo_Ambiente(models.Model):
 
 class Ambiente(models.Model):
 
-    ambiente = models.ForeignKey(Tipo_Ambiente)
+    ambiente = models.ForeignKey(Tipo_ambiente)
     sede = models.ForeignKey(Sede)
 
     def __unicode__(self):

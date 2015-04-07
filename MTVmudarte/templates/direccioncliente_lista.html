@@ -1,31 +1,34 @@
-{# {% extends "base.html" %} #}
-{% block contenido_index %} {% endblock contenido_index %}
-{% block confirmar %}{% endblock confirmar %}
 {% block ver_datos_basicos %}
 {% if direccioncliente_lista %}
-<div class="col-md-1"></div>
-<div class="col-md-4">
-  <a href="/cliente/" class="btn btn-default">Regresar</a><br><br>
-  <p><a href="direccion/nuevo/">Nuevo</a></p>
+
+
+<h4>Listado de direccion </h4>
+
+    <h6>Cantidad de direccion encontrados: <span class="badge">{{ direccioncliente_lista.count }}</span> </h6>
   <table class="table table-hover">
    <tr class="active">
-    <th>Tipo dirección</th>
-    <th>Dirección</th>
-    <th>Sede</th>
+    <th>cliente</th>
+    <th>direc</th>
+    <th>sede</th>
     <th></th>
   </tr>
   {% for i in direccioncliente_lista %}
-  <tr><td>{{ i.direc.tipo_direccion }}</td>
+  <tr><td>{{ i.cliente }}</td>
    <td>{{ i.direc }}</td>
    <td> {% if i.sede %}{{  i.sede }}{% endif %}</td>
    <td><a href="direccion/editar/{{i.id}}/">Editar</a></td>
-   <td>{# <a href="delete/{{i.id}}">delete</a> #}</td>
+   <td><a href="delete/{{i.id}}">delete</a></td>
  </tr>
  {% endfor %}
 </table>
-</div>
-{% else %}
+<p><a href="direccion/nuevo/">Agregar</a></p>
 <a href="/cliente/" class="btn btn-default">Regresar</a><br><br>
-<p class="alert alert-danger" role="alert"> No direccion are available.!  </p>
+{% else %}
+<h4>Listado de direccion </h4>
+<br><br>
+<p>Direccion no encontrado  </p>
+<p><a href="direccion/nuevo/" class="btn btn-default">Agregar</a></p>
+
 {% endif %}
+
 {% endblock ver_datos_basicos %}

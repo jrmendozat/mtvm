@@ -124,10 +124,11 @@ var focuDireccion = $('#id_direccion');
 var focuEmail = $('#id_email');
     focuEmail.focus();
 
-$('.eliminar1').click(function(){
-    var mensaje = $('.mensaje')
-    var eliminar = $('.eliminar2');
-    eliminar.addClass('block');
-    mensaje.addClass('block');
-
+$('.eliminar1').click(function(evento){
+    var oID = $(this).attr("id");
+    document.getElementById("eliminarO").setAttribute("href", " "+"delete/" + oID);
+})
+$('.eliminar2').click(function(evento){
+    var oID = $(this).attr("id");
+    document.getElementById("eliminarO").setAttribute("href", "email/"+"delete/" + oID);
 })

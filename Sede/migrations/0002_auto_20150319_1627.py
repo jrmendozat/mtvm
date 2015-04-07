@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
             options={'verbose_name': 'Sede', 'verbose_name_plural': 'Sedes'},
         ),
         migrations.AlterModelOptions(
-            name='Tipo_Ambiente',
+            name='tipo_ambiente',
             options={'verbose_name': 'Tipo de ambiente', 'verbose_name_plural': 'Tipos de ambientes'},
         ),
         migrations.AlterModelOptions(

@@ -1,9 +1,14 @@
 #encoding:utf-8
 from django.forms import ModelForm
+<<<<<<< HEAD
+from Direccion.models import Direccion, Tipo_direccion
+=======
 from Direccion.models import Direccion, Tipo_direccion, \
 Pais, Provincia, Ciudad, Zona
 
+>>>>>>> yusnel
 #class form
+
 class DireccionForm(ModelForm):
     class Meta:
         model = Direccion
