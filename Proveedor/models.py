@@ -10,11 +10,11 @@ class Tipo_Proveedor(models.Model):
     def __init__(self, *args, **kwargs):
         super(Tipo_Proveedor, self).__init__(*args, **kwargs)
 
-    tipo_proveedor = models.CharField(max_length=100)
-    adicional1 = models.CharField(max_length=250)
-    adicional2 = models.CharField(max_length=250)
-    adicional3 = models.CharField(max_length=250)
-    adicional4 = models.CharField(max_length=250)
+    tipo_proveedor = models.CharField(max_length=100, unique=True)
+    adicional1 = models.CharField(max_length=250, blank=True)
+    adicional2 = models.CharField(max_length=250, blank=True)
+    adicional3 = models.CharField(max_length=250, blank=True)
+    adicional4 = models.CharField(max_length=250, blank=True)
     activo = models.BooleanField(default=True)
 
     def __unicode__(self):
@@ -35,10 +35,10 @@ class Proveedor(models.Model):
     monto_credito = models.DecimalField(max_digits=13, decimal_places=2)
     sitio_web = models.URLField()
     comentarios = models.TextField()
-    adicional1 = models.CharField(max_length=250)
-    adicional2 = models.CharField(max_length=250)
-    adicional3 = models.CharField(max_length=250)
-    adicional3 = models.CharField(max_length=250)
+    adicional1 = models.CharField(max_length=250, blank=True)
+    adicional2 = models.CharField(max_length=250, blank=True)
+    adicional3 = models.CharField(max_length=250, blank=True)
+    adicional3 = models.CharField(max_length=250, blank=True)
     activo = models.BooleanField(default=True)
 
     def __unicode__(self):
