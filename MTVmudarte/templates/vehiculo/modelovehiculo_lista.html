@@ -3,23 +3,22 @@
 {% block confirmar %}{% endblock confirmar %}
 {% block ver_datos_basicos %}
 <p><a href="nuevo/">Nuevo</a></p>
-<p><a href="tipo_proveedor/">Tipo proveedor</a></p>
-{% if lista_proveedor %}
+{% if lista_modelovehiculo %}
 <div class="col-md-1"></div>
 <div class="col-md-4">
   <a href="../" class="btn btn-default">Regresar</a><br><br>
 
   <table class="table table-hover">
    <tr class="active">
-    <th>proveedor</th>
+    <th>modelo_vehiculo</th>
     <th>activo</th>
     <th></th>
   </tr>
-  {% for i in lista_proveedor %}
-  <tr><td>{{ i.proveedor }}</td>
+  {% for i in lista_modelovehiculo %}
+  <tr><td>{{ i.modelo_vehiculo }}</td>
    <td>{{ i.activo }}</td>
 
-   <td><a href="tipo_proveedor/editar/{{i.id}}/">Editar</a></td>
+   <td><a href="modelo_vehiculo/editar/{{i.id}}/">Editar</a></td>
    <td><a href="delete/{{i.id}}">delete</a></td>
  </tr>
  {% endfor %}

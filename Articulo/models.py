@@ -8,7 +8,7 @@ class Articulo_Clase(models.Model):
     def __init__(self, *args, **kwargs):
         super(Articulo_Clase, self).__init__(*args, **kwargs)
 
-    clase = models.CharField(max_length=100)
+    clase = models.CharField(max_length=100, unique=True)
     adicional1 = models.CharField(max_length=250, blank=True)
     adicional2 = models.CharField(max_length=250, blank=True)
     adicional3 = models.CharField(max_length=250, blank=True)
@@ -45,7 +45,7 @@ class Categoria_Articulo(models.Model):
     def __init__(self, *args, **kwargs):
         super(Categoria_Articulo, self).__init__(*args, **kwargs)
 
-    categoria = models.CharField(max_length=100)
+    categoria = models.CharField(max_length=100, unique=True)
     adicional1 = models.CharField(max_length=250, blank=True)
     adicional2 = models.CharField(max_length=250, blank=True)
     adicional3 = models.CharField(max_length=250, blank=True)
@@ -102,7 +102,7 @@ class Tipo_Costo(models.Model):
     def __init__(self, *args, **kwargs):
         super(Tipo_Costo, self).__init__(*args, **kwargs)
 
-    tipo_costo = models.CharField(max_length=100)
+    tipo_costo = models.CharField(max_length=100, unique=True)
     monto = models.DecimalField(max_digits=13, decimal_places=2)
     desde = models.DateField()
     hasta = models.DateField()
@@ -139,7 +139,7 @@ class Unidad(models.Model):
     def __init__(self, *args, **kwargs):
         super(Unidad, self).__init__(*args, **kwargs)
 
-    unidad = models.CharField(max_length=100)
+    unidad = models.CharField(max_length=100, unique=True)
     adicional1 = models.CharField(max_length=250, blank=True)
     adicional2 = models.CharField(max_length=250, blank=True)
     adicional3 = models.CharField(max_length=250, blank=True)

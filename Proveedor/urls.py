@@ -8,12 +8,12 @@ urlpatterns = patterns('',
     url(r'^(?P<id_prov>\d+)/$', views.editar_proveedor, name = 'editar_proveedor'),
     url(r'^delete/(?P<pk>\d+)$', views.delete_proveedor, name='delete_proveedor'),
 
-    url(r'^tipo_proveedor/(?P<id_prov>\d+)/$', views.lista_tipo_proveedor, \
+    url(r'^tipo_proveedor/$', views.lista_tipo_proveedor, \
         name = 'lista_tipo_proveedor'),
-    url(r'^lista_tipo_proveedor/nuevo',views.add_tipoproveedor, name = 'add_tipoproveedor'),
-    url(r'^lista_tipo_proveedor/(?P<id_prov>\d+)/$', views.editar_tipoproveedor, \
+    url(r'^tipo_proveedor/nuevo',views.add_tipoproveedor, name = 'add_tipoproveedor'),
+    url(r'^ltipo_proveedor/(?P<id_prov>\d+)/$', views.editar_tipoproveedor, \
         name = 'editar_tipoproveedor'),
-    url(r'^lista_tipo_proveedor/delete/(?P<pk>\d+)$', views.delete_tipoproveedor, \
+    url(r'^tipo_proveedor/delete/(?P<pk>\d+)$', views.delete_tipoproveedor, \
         name='delete_tipoproveedor'),
 
     url(r'^telefono/(?P<id_prov>\d+)/$', views.buscar_proveedortelefono, \
