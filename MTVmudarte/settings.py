@@ -20,25 +20,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'hvw!k_u$w7e*fni&c(&l5vb&u=)q+j1v$rj1t%u47y88=xpi(7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # TEMPLATES Configuraciones para el comportamiento de los Templates
-TEMPLATE_DEBUG = DEBUG
+TEMPLATE_DEBUG = True
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'MTVmudarte/templates'),
-)
-ADMINS = (
-    ('Yohandi', 'yoha3001@gmail.com'),
-)
 #  JR 18/03/215 Cuando las variables no capturan el valor asignado
 #  en un template se sustituye por el siguiente texto
 
 TEMPLATE_STRING_IF_INVALID = 'Error en la captura del valor de la variable'
 
-ALLOWED_HOSTS = [
-        '*'
-]   # Allow all host headers
+ALLOWED_HOSTS = []
 
 SITE_ID = 1
 
@@ -54,8 +46,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
     'haystack',
-    'Llamadas',
-    'Pais',
+    #'Llamadas',
     'Cliente',
     'Segmento',
     'Condicion_pago',
@@ -67,12 +58,9 @@ INSTALLED_APPS = (
     'Persona',
     'Departamento',
     'Trabajador',
-<<<<<<< HEAD
-
-=======
     'Mueble',
     'Articulo',
->>>>>>> yusnel
+    'Proveedor',
 )
 
 HAYSTACK_CONNECTIONS = {
@@ -97,8 +85,6 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'MTVmudarte.urls'
 
-
-
 WSGI_APPLICATION = 'MTVmudarte.wsgi.application'
 
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates').replace('\\', '/'), )
@@ -110,7 +96,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db_Mudarte',
         'USER':'root',
-        'PASSWORD': '',
+        'PASSWORD': 'md123',
         'HOST': '',
         'PORT': '',
     }
@@ -140,10 +126,17 @@ FILE_CHARSET = 'utf-8'
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 # ############### modificado por Yohandri ###########################<---------
 
-STATIC_ROOT = ''
+STATIC_ROOT = '/static/'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     )
 # ############### fin modificacion por Yohandri ######################<--------
+
+TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.contrib.messages.context_processors.messages")
