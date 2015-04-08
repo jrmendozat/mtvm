@@ -5,85 +5,85 @@
 <div class="row" style="">
 
     <div class="container-fluid">
-    <a href="/cliente/" class="btn btn-default">Regresar</a><br><br>
+        <a href="/cliente/" class="btn btn-default">Regresar</a><br><br>
 
 
-    <div class="col-md-4">
-              <div class="panel panel-default">
-              <div class="panel-heading"><h3 >Informacion general</h3></div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+              <div class="panel-heading"><h3 >Informacion general </h3></div>
               <div class="panel-body">
-    {% if cliente_individual %}
+                {% if cliente_individual %}
 
-    {% for i in cliente_individual %}
+                {% for i in cliente_individual %}
 
-    <p class="color">
-        <span class=""><strong>Nombre principal:</strong></span>
-        {{ i.nombre_principal }}
-    </p>
-    <p class="color">
-        <span class=""><strong>Tipo de cliente:</strong></span>
-        {{ i.tipo_cliente }}
-    </p>
-    <p class="color">
-        <span class=""><strong>Tipo de precio:</strong></span>
-        {{ i.tipo_cliente.precio }}
-    </p>
-    <p class="color">
-        <span class=""><strong>Condición de pago: </strong></span>
-        {{ i.condicion_pago }}
-    </p>
-    <p class="color">
-        <span class=""><strong>Monto de credito: </strong></strong></span>
-        {{ i.monto_credito }}
-    </p>
-    <p class="color">
-        <span class=""><strong>Segmento:</strong>
-        {{ i.segmento }}
-    </p>
-    <p class="color">
-       <strong> Sitio web:</strong>
-        {{ i.sitio_web }}
-    </p>
-    <p class="color">
-        <strong>Comentarios: </strong>
-        {{ i.comentarios }}
-    </p>
-    <p class="color">
-        <strong>Estado del cliente: </strong>
-        {% if i.activo %}
+                <p class="color">
+                    <span class=""><strong>Nombre principal:</strong></span>
+                    {{ i.nombre_principal }}
+                </p>
+                <p class="color">
+                    <span class=""><strong>Tipo de cliente:</strong></span>
+                    {{ i.tipo_cliente }}
+                </p>
+                <p class="color">
+                    <span class=""><strong>Tipo de precio:</strong></span>
+                    {{ i.tipo_cliente.precio }}
+                </p>
+                <p class="color">
+                    <span class=""><strong>Condición de pago: </strong></span>
+                    {{ i.condicion_pago }}
+                </p>
+                <p class="color">
+                    <span class=""><strong>Monto de credito: </strong></strong></span>
+                    {{ i.monto_credito }}
+                </p>
+                <p class="color">
+                    <span class=""><strong>Segmento:</strong>
+                        {{ i.segmento }}
+                    </p>
+                    <p class="color">
+                     <strong> Sitio web:</strong>
+                     {{ i.sitio_web }}
+                 </p>
+                 <p class="color">
+                    <strong>Comentarios: </strong>
+                    {{ i.comentarios }}
+                </p>
+                <p class="color">
+                    <strong>Estado del cliente: </strong>
+                    {% if i.activo %}
 
-        Activo
+                    Activo
 
-        {% else %}
+                    {% else %}
 
-        Inactivo
+                    Inactivo
 
-        {% endif %}
-    </p>
-    <p class="color">
-        <strong>Dato adicional 1:</strong>
-        {{ i.adicional1 }}
-    </p>
-    <p class="color">
-       <strong> Dato adicional 2:</strong>
-        {{ i.adicional2 }}
-    </p>
-    <p class="color">
-       <strong> Dato adicional 3:</strong>
-        {{ i.adicional3 }}
-    </p>
-    <p class="color">
-        <strong>Dato adicional 4:</strong>
-        {{ i.adicional4 }}
-    </p>
+                    {% endif %}
+                </p>
+                <p class="color">
+                    <strong>Dato adicional 1:</strong>
+                    {{ i.adicional1 }}
+                </p>
+                <p class="color">
+                 <strong> Dato adicional 2:</strong>
+                 {{ i.adicional2 }}
+             </p>
+             <p class="color">
+                 <strong> Dato adicional 3:</strong>
+                 {{ i.adicional3 }}
+             </p>
+             <p class="color">
+                <strong>Dato adicional 4:</strong>
+                {{ i.adicional4 }}
+            </p>
 
-    {% endfor %}
-</div>
-</div>
+            {% endfor %}
+        </div>
+    </div>
     {% endif %}
 
-    </div><!--fin col-md-->
-    <div class="col-md-4">
+</div><!--fin col-md-->
+<div class="col-md-4">
            {% comment %} <input type="submit" name="comment"
            value="ver lista" id="toggle-content" /> {% comment %}
          {% comment %}
@@ -91,40 +91,40 @@
              {% endcomment %}
 
              <div id="extra-content">{% include "telefonocliente_lista.html" %}</div>
-        <br><br>
+             <br><br>
 
-    <div class="">
+             <div class="">
                     <!--lista de direcciones del cliente con controles
                     <input type="submit" name="comment" value="ver lista" id="toggle-content"/>-->
                     <div id="extra-content">{% include "direccioncliente_lista.html" %}</div>
 
-        </div>
-    </div><!--fin col-md-->
-    <div class="col-md-4">
+                </div>
+            </div><!--fin col-md-->
+            <div class="col-md-4">
      <!--<input type="submit" name="comment"
         value="ver lista" id="toggle-content" />
         lista de emails del cliente con controles-->
 
         <div id="extra-content">{% include "Emailcliente_lista.html" %}</div>
         <br>
-    <div class="">
+        <div class="">
             <div class="panel panel-default">
               <div class="panel-heading">Personas relacionadas</div>
               <div class="panel-body">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus magnam odio iusto, nostrum maiores atque quisquam enim aut eos consectetur.
-              </div>
             </div>
         </div>
-        <div class="">
-             <div class="panel panel-default">
-              <div class="panel-heading">Empresas relacionadas</div>
-              <div class="panel-body">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus magnam odio iusto, nostrum maiores atque quisquam enim aut eos consectetur.
-              </div>
-             </div>
+    </div>
+    <div class="">
+       <div class="panel panel-default">
+          <div class="panel-heading">Empresas relacionadas</div>
+          <div class="panel-body">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus magnam odio iusto, nostrum maiores atque quisquam enim aut eos consectetur.
         </div>
     </div>
-  </div><!--fin container-fluid 1-->
+</div>
+</div>
+</div><!--fin container-fluid 1-->
 </div><!--fin row 1-->
 <div class="row">
     <div class="container-fluid">
