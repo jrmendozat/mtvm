@@ -61,6 +61,7 @@ INSTALLED_APPS = (
     'Mueble',
     'Articulo',
     'Proveedor',
+    'Vehiculo',
 )
 
 HAYSTACK_CONNECTIONS = {
@@ -126,8 +127,9 @@ FILE_CHARSET = 'utf-8'
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 # ############### modificado por Yohandri ###########################<---------
 
-STATIC_ROOT = '/static/'
+#STATIC_ROOT = '/static/'
 STATIC_URL = '/static/'
+STATIC_ROOT = ''
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),

@@ -5,13 +5,14 @@
 
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.conf import settings
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^static/(?P<path>.*)$',
-        'django.views.static.serve',
-        {'document_root': 'static'}),
+    #(r'^static/(?P<path>.*)$',
+    #    'django.views.static.serve',
+    #    {'document_root': 'static'}),
     # Examples:
     url(r'^$', 'inicio.views.pantalla_inicial', name = 'pantalla_inicial' ),
     # url(r'^blog/', include('blog.urls')),
@@ -31,5 +32,13 @@ urlpatterns = patterns('',
     url(r'^mueble/', include('Mueble.urls', namespace="umueble")),
     url(r'^articulo/', include('Articulo.urls', namespace="uarticulo")),
     url(r'^proveedor/', include('Proveedor.urls', namespace="uproveedor")),
-
+    url(r'^vehiculo/', include('Vehiculo.urls', namespace="uvehiculo")),
 )
+
+# se agrego para probar los estilo
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        url(r'^static/(?P<path>.*)$',
+            'django.views.static.serve',
+            {'document_root' : settings.STATICFILES_DIRS}),
+    )
