@@ -5,6 +5,7 @@
     background: rgba(189, 195, 199,1.0);
     box-sizing:border-box;
     display:block;
+    z-index: 1000;
 }
 .seccion{
     width: 5%;

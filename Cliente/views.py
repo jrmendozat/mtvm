@@ -235,7 +235,7 @@ def edit_email(request,id_cli, pk):
             form_edit_email.save()
 
             #return HttpResponseRedirect(reverse('uclientes:lista_email'))
-            return HttpResponseRedirect('../../')
+            return HttpResponseRedirect('../../../')
     else:
         # formulario inicial
         form_edit_email = EmailForm(instance=id_email)

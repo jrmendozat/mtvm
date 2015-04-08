@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'hvw!k_u$w7e*fni&c(&l5vb&u=)q+j1v$rj1t%u47y88=xpi(7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # TEMPLATES Configuraciones para el comportamiento de los Templates
 TEMPLATE_DEBUG = DEBUG
