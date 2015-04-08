@@ -5,6 +5,9 @@
 
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from MTVmudarte import views
+
+handler404 = views.custom_404
 
 admin.autodiscover()
 
@@ -32,7 +35,9 @@ urlpatterns = patterns('',
     url(r'^articulo/', include('Articulo.urls', namespace="uarticulo")),
     url(r'^proveedor/', include('Proveedor.urls', namespace="uproveedor")),
 
+
 )
 
-handler404 = 'mysite.views.handler404'
+
+
 

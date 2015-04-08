@@ -77,7 +77,8 @@ def add_telefono_cliente(request, id_cli):
         if telefono_form.is_valid():
             obj_tel = telefono_form.save()
             telefono = Telefono.objects.get(id = obj_tel.id)
-
+            obj_tel.save()
+            return HttpResponseRedirect('../../')
         clitel_form = ClienteTelefonoForm(request.POST)
         if clitel_form.is_valid():
             formResult2 = clitel_form.save(commit = False)
@@ -85,6 +86,7 @@ def add_telefono_cliente(request, id_cli):
             formResult2.cliente = cliente
             formResult2.telefono = telefono
             formResult2.save()
+            return HttpResponseRedirect('../../')
     else:
         telefono_form = TelefonoForm()
         clitel_form = ClienteTelefonoForm()
@@ -106,7 +108,7 @@ def add_email(request, id_cli):
             formu.cliente = cliente
             formu.save()
 
-            return HttpResponseRedirect('../')
+            return HttpResponseRedirect('../../')
     else:
         emailform = EmailForm()
     return render_to_response('Emailcliente_add.html', {'emailform':emailform, \
@@ -296,12 +298,19 @@ def delete_email(request, id_cli, pk, template_name='server_confirm_delete.html'
         return HttpResponseRedirect('../')
     return render(request, template_name, {'object':email})
 
+def eliminarEmail(request, id_cli, pk, template_name='emailcliente_lista.html'):
+
+        email = get_object_or_404(Email, pk=pk)
+        email.delete()
+
+        return HttpResponseRedirect('../../')
+
+
 def delete_telefono_cliente(request, id_cli, pk, template_name='server_confirm_delete.html'):
-    telefono = get_object_or_404(Telefono, pk=pk)
-    if request.method == 'POST':
+        telefono = get_object_or_404(Telefono, pk=pk)
         telefono.delete()
-        return HttpResponseRedirect('../')
-    return render(request, template_name, {'object':telefono})
+
+        return HttpResponseRedirect('../../')
 
 def add_telefono_cliente2(request, id_cli):
 
