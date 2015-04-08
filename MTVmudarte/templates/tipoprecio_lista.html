@@ -4,30 +4,32 @@
 {% if Lista_precio %}
 <div class="col-md-1"></div>
 <div class="col-md-4">
-  <h2>Listado de tipos de precio </h2>
-   <a href="nuevo/" class="btn btn-default">Nuevo</a>
-   <br>
-    <h6>Cantidad de tipos de precio encontrados: <span class="badge">{{ Lista_precio.count }}</span> </h6>
-   <table class="table table-hover">
-       <tr class="active">
-        <th>Nombre</th>
-        <th>Estado</th>
-        <th>Editar</th>
-        <th>Eliminar</th>
-    </tr>
-    {% for i in Lista_precio %}
-    <tr><td>{{ i.nombre }}</td>
-       <td>
-        {% if i.activo %}
-        Activo
-        {% else %}
-        Inactivo
-        {% endif %}
-      </td>
-       <td><a href="{{i.id}}/" class="glyphicon glyphicon-edit"></a></td>
-       <td><a href="delete/{{i.id}}" class="glyphicon glyphicon-remove"></a></td>
-   </tr>
-   {% endfor %}
+  <h2>Listado de tipos de precio
+  </h2>
+  <a href="nuevo/" class="btn btn-default">Nuevo</a>
+  <br>
+  <h6>Cantidad de tipos de precio encontrados: <span class="badge">{{ Lista_precio.count }}</span> </h6>
+  <table class="table table-hover">
+   <tr class="active">
+    <th>Nombre</th>
+    <th>Estado</th>
+    <th>Editar</th>
+    <th>Eliminar</th>
+  </tr>
+  {% for i in Lista_precio %}
+  <tr><td>{{ i.nombre }}</td>
+   <td>
+    {% if i.activo %}
+    Activo
+    {% else %}
+    Inactivo
+    {% endif %}
+  </td>
+  <td><a href="{{i.id}}/" class="glyphicon glyphicon-edit"></a></td>
+  <td><a id="{{i.id}}" href="#" class="eliminar1 glyphicon glyphicon-remove" onclick="addhref();"
+    data-toggle="modal" data-target=".eliminarTP"></a></td>
+  </tr>
+  {% endfor %}
 </table>
 <a href="nuevo/" class="btn btn-default">Nuevo</a>
 </div>
@@ -36,3 +38,16 @@
 <a href="nuevo/" class="btn btn-default">Nuevo</a>
 {% endif %}
 {% endblock ver_datos_basicos %}
+{% block confirmar %}
+<div class="modal fade eliminarTP" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content well well-lg">
+      <h3 class="bg-primary" style="text-align: center;">¿ Eliminar ?</h3>
+      <br>
+      <br>
+      <a id="eliminarO" href="" class="btn btn-default btn-xs btn-block">Si</a>
+      <a href="/tipo_cliente/tipo_precio/" class="btn btn-default btn-xs btn-block">No</a>
+    </div>
+  </div>
+</div>
+{% endblock confirmar %}

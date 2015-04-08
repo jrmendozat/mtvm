@@ -45,9 +45,10 @@ def edit_condicionpago(request, pk):
     return render_to_response('condicionpago_edit.html', {'form_edit_condicionpago': form_edit_condicionpago, 'create':False}, context_instance = RequestContext(request))
 
 # eliminar un registro
-def delete_condicionpago(request, pk, template_name='server_confirm_delete.html'):
-    condicionpago = get_object_or_404(Condicion_pago, pk=pk)
-    if request.method == 'POST':
+def delete_condicionpago(request, pk,):
+        condicionpago = get_object_or_404(Condicion_pago, pk=pk)
         condicionpago.delete()
+
         return HttpResponseRedirect(reverse('ucondicionpago:lista_condicionpago'))
-    return render(request, template_name, {'object':condicionpago})
+        html = "<script>alert('Registro eliminado');</script>"
+        return HttpResponse(html)

@@ -82,16 +82,12 @@ def edit_tipoprecio(request, pk):
     return render_to_response('tipoprecio_edit.html', {'form_edit_tipoprecio': form_edit_tipoprecio, 'create':False}, context_instance = RequestContext(request))
 
 # eliminar un registro
-def delete_tipocliente(request, pk, template_name='server_confirm_delete.html'):
-    tipocliente = get_object_or_404(Tipo_cliente, pk=pk)
-    if request.method == 'POST':
+def delete_tipocliente(request, pk):
+        tipocliente = get_object_or_404(Tipo_cliente, pk=pk)
         tipocliente.delete()
         return HttpResponseRedirect(reverse('utipocliente:lista_tipocliente'))
-    return render(request, template_name, {'object':tipocliente})
 
-def delete_tipoprecio(request, pk, template_name='server_confirm_delete.html'):
-    tipoprecio = get_object_or_404(Tipo_precio, pk=pk)
-    if request.method == 'POST':
+def delete_tipoprecio(request, pk, template_name='tipoprecio_lista.html'):
+        tipoprecio = get_object_or_404(Tipo_precio, pk=pk)
         tipoprecio.delete()
         return HttpResponseRedirect(reverse('utipocliente:lista_tipoprecio'))
-    return render(request, template_name, {'object':tipoprecio})

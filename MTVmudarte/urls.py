@@ -33,3 +33,6 @@ urlpatterns = patterns('',
     url(r'^proveedor/', include('Proveedor.urls', namespace="uproveedor")),
 
 )
+
+handler404 = 'mysite.views.handler404'
+

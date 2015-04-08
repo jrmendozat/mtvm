@@ -20,17 +20,23 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'hvw!k_u$w7e*fni&c(&l5vb&u=)q+j1v$rj1t%u47y88=xpi(7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # TEMPLATES Configuraciones para el comportamiento de los Templates
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
+TEMPLATE_DIRS = (
+    #'C:/proyectos/mtvm/MTVmudarte/templates/',
+)
+ADMINS = (
+    #('Yohandi', 'yoha3001@gmail.com'),
+)
 #  JR 18/03/215 Cuando las variables no capturan el valor asignado
 #  en un template se sustituye por el siguiente texto
 
 TEMPLATE_STRING_IF_INVALID = 'Error en la captura del valor de la variable'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 SITE_ID = 1
 

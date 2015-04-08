@@ -21,6 +21,7 @@ def list_cliente(request):
     context = {'list_clie': list_clie}
     return render(request, 'cliente_lista.html', context)
 
+
 def lista_email(request, id_cli):
 
     cliente = Cliente.objects.get(id = id_cli)
