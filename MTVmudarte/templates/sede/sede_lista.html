@@ -1,13 +1,12 @@
-{# {% extends "base.html" %}#}
+{% extends "base.html" %}
 {% block contenido_index %} {% endblock contenido_index %}
 {% block ver_datos_basicos %}
- <p><a href="nuevo/">Nuevo</a></p>
- <p><a href="tipo_sede/">Lista tipo Sede</a></p>
 {% if lista_sede %}
 <div class="col-md-1"></div>
- <div class="col-md-4">
+ <div class="col-md-6">
     <h2>Lista tipo sede</h2>
-
+    <p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
+    <p><a href="tipo_sede/">Lista tipo Sede</a></p>
      <h6>Cantidad de sede encontrados: <span class="badge">{{ lista_sede.count }}</span> </h6>
     <table class="table table-hover">
          <tr class="active">
@@ -15,8 +14,8 @@
             <th>Piso</th>
             <th>Piso por Esc.</th>
             <th>Nro de ambiente</th>
-            <th></th>
-            <th></th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
         {% for i in lista_sede %}
 
@@ -25,15 +24,15 @@
             <td>{{ i.piso_por_escalera }}</td>
             <td>{{ i.numero_ambiente }}</td>
             <td><a href="{{i.id}}/" class="glyphicon glyphicon-edit"></a></td>
-            <td><a href="delete/{{i.id}}" class="glyphicon glyphicon-remove">eli</a></td>
+            <td><a href="delete/{{i.id}}" class="glyphicon glyphicon-remove"></a></td>
         </tr>
 
      {% endfor %}
     </table>
-    <p><a href="nuevo/">Nuevo</a></p>
+    <p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
 </div>
  {% else %}
  <p> No sede are available. </p>
- <p><a href="nuevo/">Nuevo</a></p>
+ <p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
  {% endif %}
 {% endblock ver_datos_basicos %}

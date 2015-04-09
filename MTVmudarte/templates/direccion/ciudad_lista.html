@@ -1,12 +1,12 @@
-{# {% extends "base.html" %} #}
+{% extends "base.html" %}
 {% block contenido_index %} {% endblock contenido_index %}
 {% block ver_datos_basicos %}
-<a href="nuevo/" class="btn btn-default">Nuevo</a>
-<br>
 {% if lista_ciudad %}
 <div class="col-md-1"></div>
 <div class="col-md-4">
   <h2>Listado de ciudad </h2>
+  <a href="nuevo/" class="btn btn-default">Nuevo</a>
+<br>
     <h6>Cantidad de ciudad encontrados: <span class="badge">
       {{ lista_ciudad.count }}</span> </h6>
    <table class="table table-hover">

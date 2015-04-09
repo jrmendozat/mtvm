@@ -10,19 +10,20 @@
     <th>Tipo dirección</th>
     <th>Dirección</th>
     <th>Sede</th>
-    <th></th>
+    <th>Editar</th>
+    <th>Eliminar</th>
   </tr>
   {% for i in direccioncliente_lista %}
   <tr><td>{{ i.direc.tipo_direccion }}</td>
    <td>{{ i.direc }}</td>
-   <td> {% if i.sede %}{{  i.sede }}{% endif %}</td>
-   <td><a href="direccion/editar/{{i.id}}/">Editar</a></td>
-   <td>{# <a href="delete/{{i.id}}">delete</a> #}</td>
+   <td> {% if i.sede1 %}{{  i.sede1 }}{% endif %}</td>
+   <td><a href="direccion/editar/{{i.id}}/" class="glyphicon glyphicon-edit"></a></td>
+   <td><a href="direccion/delete/{{i.id}}" class="glyphicon glyphicon-remove"></a></td>
  </tr>
  {% endfor %}
 </table>
-<p><a href="direccion/nuevo/">Agregar</a></p>
-<a href="/cliente/" class="btn btn-default">Regresar</a><br><br>
+<p><a href="direccion/nuevo/" class="btn btn-default">Agregar</a></p>
+
 {% else %}
 <h4>Listado de direccion </h4>
 <br><br>
