@@ -54,8 +54,7 @@ def add_cliente(request):
 
         if cliente_form.is_valid():
 
-            #obj_cli = cliente_form.save()
-            #cliente = Cliente.objects.get(id = obj_cli.id)
+            cliente_form.save()
 
             return HttpResponseRedirect('../')
     else:
