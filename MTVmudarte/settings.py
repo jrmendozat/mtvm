@@ -70,6 +70,7 @@ INSTALLED_APPS = (
     'Articulo',
     'Proveedor',
     'Vehiculo',
+    'Transporte',
 )
 
 HAYSTACK_CONNECTIONS = {

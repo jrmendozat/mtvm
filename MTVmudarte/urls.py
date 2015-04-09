@@ -35,6 +35,7 @@ urlpatterns = patterns('',
     url(r'^articulo/', include('Articulo.urls', namespace="uarticulo")),
     url(r'^proveedor/', include('Proveedor.urls', namespace="uproveedor")),
     url(r'^vehiculo/', include('Vehiculo.urls', namespace="uvehiculo")),
+    url(r'^transporte/', include('Transporte.urls', namespace="utransporte")),
 )
 
 # se agrego para probar los estilo

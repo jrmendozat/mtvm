@@ -18,7 +18,7 @@
    <td>{{ i.direc }}</td>
    <td> {% if i.sede1 %}{{  i.sede1 }}{% endif %}</td>
    <td><a href="direccion/editar/{{i.id}}/" class="glyphicon glyphicon-edit"></a></td>
-   <td><a href="direccion/delete/{{i.id}}" class="glyphicon glyphicon-remove"></a></td>
+   <td>{# <a href="delete/{{i.id}}">delete</a> #}</td>
  </tr>
  {% endfor %}
 </table>
