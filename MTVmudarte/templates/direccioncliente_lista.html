@@ -15,7 +15,7 @@
   {% for i in direccioncliente_lista %}
   <tr><td>{{ i.direc.tipo_direccion }}</td>
    <td>{{ i.direc }}</td>
-   <td> {% if i.sede %}{{  i.sede }}{% endif %}</td>
+   <td> {% if i.sede1 %}{{  i.sede1 }}{% endif %}</td>
    <td><a href="direccion/editar/{{i.id}}/">Editar</a></td>
    <td>{# <a href="delete/{{i.id}}">delete</a> #}</td>
  </tr>

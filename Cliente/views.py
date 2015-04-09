@@ -12,15 +12,13 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.forms.formsets import formset_factory
-
-
+from django.core.exceptions import ObjectDoesNotExist
 # Create your views here.
 # listas
 def list_cliente(request):
     list_clie = Cliente.objects.all()
     context = {'list_clie': list_clie}
     return render(request, 'cliente_lista.html', context)
-
 
 def lista_email(request, id_cli):
 
@@ -78,14 +76,18 @@ def add_telefono_cliente(request, id_cli):
             obj_tel = telefono_form.save()
             telefono = Telefono.objects.get(id = obj_tel.id)
             obj_tel.save()
-            return HttpResponseRedirect('../../')
+
         clitel_form = ClienteTelefonoForm(request.POST)
+        clitel_form.telefono=telefono
+
         if clitel_form.is_valid():
+
             formResult2 = clitel_form.save(commit = False)
             #luego de hacer el save anterior le metodo el ID al siguiente y listo
             formResult2.cliente = cliente
             formResult2.telefono = telefono
             formResult2.save()
+
             return HttpResponseRedirect('../../')
     else:
         telefono_form = TelefonoForm()
@@ -257,7 +259,7 @@ def edit_telefono_cliente(request, id_cli, pk):
             form_edit_telefono.save()
 
             #return HttpResponseRedirect(reverse('uclientes:lista_email'))
-            return HttpResponseRedirect('../../')
+            return HttpResponseRedirect('../../../')
     else:
         # formulario inicial
         form_edit_telefono = TelefonoForm(instance=id_telefono)
@@ -268,26 +270,80 @@ def edit_telefono_cliente(request, id_cli, pk):
 
 def direccion_cliente_edit(request, id_cli, pk):
 
+    cliente = Cliente_Direccion.objects.get(id = pk)
+
     id_dir = Cliente_Direccion.objects.values('direc').filter(pk = pk)
+
+    id_sede = Cliente_Direccion.objects.values('sede1').filter(pk = pk)
 
     id_direcc=Direccion.objects.get(pk=id_dir)
 
-    if request.method == 'POST':
-        # formulario enviado
-        form_edit_direccion = DireccionForm(request.POST, instance=id_direcc)
+    try :
 
-        if form_edit_direccion.is_valid():
-            # formulario validado correctamente
-            form_edit_direccion.save()
+        id_sede1 = Sede.objects.get(pk=id_sede)
 
-            #return HttpResponseRedirect(reverse('uclientes:lista_email'))
-            return HttpResponseRedirect('../../')
-    else:
-        # formulario inicial
-        form_edit_direccion = DireccionForm(instance=id_direcc)
+        if request.method == 'POST':
+            # formulario enviado
+            form_edit_direccion = DireccionForm(request.POST, instance=id_direcc)
+            form_edit_sede = SedeForm(request.POST, instance=id_sede1)
+            clidir_form = ClienteDireccionForm(request.POST, instance=cliente)
+
+            if form_edit_direccion.is_valid():
+                # formulario validado correctamente
+                form_edit_direccion.save()
+
+            if form_edit_sede.is_valid():
+                form_edit_sede.save()
+
+                #return HttpResponseRedirect(reverse('uclientes:lista_email'))
+                return HttpResponseRedirect('../../../')
+        else:
+            # formulario inicial
+            form_edit_direccion = DireccionForm(instance=id_direcc)
+            form_edit_sede = SedeForm(instance=id_sede1)
+            clidir_form = ClienteDireccionForm(instance=cliente)
+
+    except ObjectDoesNotExist:
+        id_sede1=0
+
+        if request.method == 'POST':
+            # formulario enviado
+            form_edit_direccion = DireccionForm(request.POST, instance=id_direcc)
+            form_edit_sede = SedeForm(request.POST)
+            clidir_form = ClienteDireccionForm(request.POST, instance=cliente)
+
+            if form_edit_direccion.is_valid():
+                # formulario validado correctamente
+                form_edit_direccion.save()
+
+            if form_edit_sede.is_valid():
+                obj_sede = form_edit_sede.save()
+                sede = Sede.objects.get(id = obj_sede.id)
+
+                if clidir_form.is_valid():
+                    formResult2 = clidir_form.save(commit = False)
+                    #luego de hacer el save anterior le metodo el ID al siguiente y listo
+                    formResult2.sede1 = sede
+                    formResult2.save()
+            else:
+                clidir_form = ClienteDireccionForm(request.POST, instance=cliente)
+
+                #return HttpResponseRedirect(reverse('uclientes:lista_email'))
+            return HttpResponseRedirect('../../../')
+        else:
+            # formulario inicial
+            form_edit_direccion = DireccionForm(instance=id_direcc)
+            clidir_form = ClienteDireccionForm(instance=cliente)
+
+            if id_sede1==0:
+                form_edit_sede = SedeForm()
+            else:
+                form_edit_sede = SedeForm(instance=id_sede1)
+
 
     return render_to_response('direccioncliente_edit.html', \
-        {'form_edit_direccion': form_edit_direccion, 'create':False}, \
+        {'form_edit_direccion': form_edit_direccion, \
+        'form_edit_sede':form_edit_sede, 'clidir_form':clidir_form, 'create':False}, \
         context_instance = RequestContext(request))
 
 # eliminar un registro
@@ -307,10 +363,13 @@ def eliminarEmail(request, id_cli, pk, template_name='emailcliente_lista.html'):
 
 
 def delete_telefono_cliente(request, id_cli, pk, template_name='server_confirm_delete.html'):
-        telefono = get_object_or_404(Telefono, pk=pk)
+
+        id_telefono = Cliente_telefono.objects.values('telefono').filter(pk=pk)
+
+        telefono = get_object_or_404(Telefono, pk=id_telefono)
         telefono.delete()
 
-        return HttpResponseRedirect('../../')
+        return HttpResponseRedirect('../../../')
 
 def add_telefono_cliente2(request, id_cli):
 
