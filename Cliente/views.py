@@ -50,20 +50,15 @@ def direccioncliente_lista(request, id_cli):
 def add_cliente(request):
 
     if request.method == 'POST':
-        cliente_form = ClienteForm(request.POST)
-
+        cliente_form = ClienteForm(request.POST, request.FILES)
         if cliente_form.is_valid():
-
             cliente_form.save()
-
             return HttpResponseRedirect('../')
     else:
-        # formulario inicial
         cliente_form = ClienteForm()
-
-    return render_to_response('cliente_add.html',\
-     {'cliente_form': cliente_form, 'create':True},\
-      context_instance = RequestContext(request))
+    return render_to_response('cliente_add.html', \
+        {'cliente_form':cliente_form, 'create': True}, \
+        context_instance = RequestContext(request))
 
 def add_telefono_cliente(request, id_cli):
 
