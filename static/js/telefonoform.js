@@ -23,7 +23,7 @@ telefono.hover(function(){
 });
 
     function borrarCampo() {
-    document.getElementById("formulario").reset();
+    docu|t.getElementById("formulario").reset();
 }
 
 function cargarNumero() {

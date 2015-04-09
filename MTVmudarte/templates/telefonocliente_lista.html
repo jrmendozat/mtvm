@@ -16,12 +16,15 @@
   </tr>
 
   {% for i in lista_telefono_cliente %}
-
   <tr>
     <td>{{ i.telefono.tipo_telefono }}</td>
     <td>{{ i.telefono }}</td>
     <td>
-      <a href="#" id ="editar" data-telid="{{i.id}}" class="glyphicon glyphicon-edit" type="button"></a>
+      {% comment %}
+        <a href="#" id ="editar" data-telid="{{i.id}}" class="glyphicon glyphicon-edit" type="button">
+      {% endcomment %}
+      <a href="telefono/editar/{{i.id}}" class="glyphicon glyphicon-edit">
+      </a>
     </td>
     <td><a href="telefono/delete/{{i.id}}" class="glyphicon glyphicon-remove">
     </a></td>
@@ -50,26 +53,32 @@
   {{ form_edit_telefono }}</b>
 {% endif %}
 
-
 <!--<script language="javascript">
 $(document).ready(function(){
   $(".glyphicon-edit").click(function(){
     $("#resultado").html($("#idtele").val());
     alert("mensaje " + $("#idtele").val());
+=======
+ <script language="javascript">
+// $(document).ready(function(){
+//   $(".glyphicon-edit").click(function(){
+//     $("#resultado").html($("#idtele").val());
+//     alert("mensaje " + $("#idtele").val());
+>>>>>>> 9fac1c1361996e2954df12d400979416b799eab5
 
 
-  });
+//   });
 
-  $('#editar').click(function(){
-    alert('prueba ' + $(this).attr("data-telid"))
-    var telid;
-    telid = $(this).attr("data-telid");
-    $.post('/Telefono/editar_telefono/', {pk: telid}, function(data){
-      $('#like_count').html(data);
-    });
-  });
+//   $('#editar').click(function(){
+//     alert('prueba ' + $(this).attr("data-telid"))
+//     var telid;
+//     telid = $(this).attr("data-telid");
+//     $.post('/Telefono/editar_telefono/', {pk: telid}, function(data){
+//       $('#like_count').html(data);
+//     });
+//   });
 
-});
+// });
 
+<<<<<<< HEAD
 </script>-->
-
