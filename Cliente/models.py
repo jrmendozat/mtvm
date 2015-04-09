@@ -13,6 +13,9 @@ from Sede.models import Sede
 # Create your models here.
 
 class Cliente(models.Model):
+    """docstring for Cliente"""
+    def __init__(self, *args, **kwargs):
+        super(Cliente, self).__init__(*args, **kwargs)
 
     nombre_principal = models.CharField(max_length=250)
     tipo_cliente = models.ForeignKey(Tipo_cliente, blank=True)
@@ -20,7 +23,7 @@ class Cliente(models.Model):
     monto_credito = models.DecimalField(max_digits=10, decimal_places=2, blank=True)
     segmento = models.ForeignKey(Segmento, blank=True)
     #login = models.ForeignKey(User)
-    sitio_web = models.URLField() #models.CharField(max_length=250, blank=True)
+    sitio_web = models.URLField(blank=True)
     comentarios = models.TextField(blank=True)
     adicional1 = models.CharField(max_length=50, blank=True)
     adicional2 = models.CharField(max_length=50, blank=True)
@@ -29,7 +32,10 @@ class Cliente(models.Model):
     activo = models.BooleanField(default=True)
 
     def __unicode__(self):
-        return u'%s - %s'%(self.nombre_principal, self.tipo_cliente)
+        return self.nombre_principal
+
+    class Meta:
+        verbose_name_plural = "Clientes"
 
 class Email(models.Model):
 

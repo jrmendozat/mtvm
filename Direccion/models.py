@@ -53,6 +53,9 @@ class Zona(models.Model):
         return self.zona
 
 class Tipo_direccion(models.Model):
+    """docstring for Tipo_direccion"""
+    def __init__(self, *args, **kwargs):
+        super(Tipo_direccion, self).__init__(*args, **kwargs)
 
     tipo_direccion = models.CharField(max_length=10)
     activo = models.BooleanField(default=True)
@@ -65,6 +68,9 @@ class Tipo_direccion(models.Model):
         verbose_name_plural = "Tipos de direccion"
 
 class Direccion(models.Model):
+    """docstring for Direccion"""
+    def __init__(self, *args, **kwargs):
+        super(Direccion, self).__init__(*args, **kwargs)
 
     direccion = models.CharField(max_length=500)
     punto_referencia = models.CharField(max_length=250)

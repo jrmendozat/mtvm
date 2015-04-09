@@ -3,6 +3,9 @@ from django.contrib import admin
 
 # Create your models here.
 class Segmento(models.Model):
+    """docstring for Segmento"""
+    def __init__(self, *args, **kwargs):
+        super(Segmento, self).__init__(*args, **kwargs)
 
     segmento = models.CharField(max_length=50, unique=True)
     adicional1 = models.CharField(max_length=50, blank=True)
@@ -13,5 +16,8 @@ class Segmento(models.Model):
 
     def __unicode__(self):
         return self.segmento
+
+    class Meta:
+        verbose_name_plural = "Segmento"
 
 admin.site.register(Segmento)
