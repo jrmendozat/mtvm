@@ -1,4 +1,4 @@
-{# {% extends "base.html" %} #}
+{% extends "base.html" %}
 {% block contenido_index %} {% endblock contenido_index %}
 {% block ver_datos_basicos %}
 <div class="col-md-1"></div>
@@ -8,14 +8,14 @@
     {% csrf_token %}
     <button type="submit" class="btn btn-default">
         Registrar</button>
-    <a href="/categoria/" class="btn btn-default">
+    <a href="../" class="btn btn-default">
         Regresar</a><br><br>
     <div class="form-group">
         {{ editar_categoriaarticulo.as_p }}
     </div>
     <button type="submit" class="btn btn-default">
         Registrar</button>
-    <a href="/categoria/" class="btn btn-default">
+    <a href="../" class="btn btn-default">
         Regresar</a><br><br>
 </form>
 </div>

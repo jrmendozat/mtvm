@@ -38,7 +38,7 @@ def lista_tipo_direccion(request):
 def lista_direccion(request):
     lista_direccion = Direccion.objects.all()
     context = {'lista_direccion': lista_direccion}
-    return render(request, 'tipodireccion_lista.html', context)
+    return render(request, 'direccion_lista.html', context)
 
 # agregar nuevo
 def add_direccion(request):
@@ -58,7 +58,7 @@ def add_tipo_direccion(request):
         form_tipodireccion = TipoDireccionForm(request.POST, request.FILES)
         if form_tipodireccion.is_valid():
             form_tipodireccion.save()
-            return HttpResponseRedirect(reverse('udireciones:lista_direccion'))
+            return HttpResponseRedirect(reverse('udireciones:lista_tipo_direccion'))
     else:
         form_tipodireccion = TipoDireccionForm()
     return render_to_response('tipodireccion_add.html', \
