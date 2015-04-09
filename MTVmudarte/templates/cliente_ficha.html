@@ -2,7 +2,7 @@
 {% block contenido_index %} {% endblock contenido_index %}
 {% block ver_datos_basicos %}
 
-<div class="row" style="">
+<div class="row">
 
     <div class="container-fluid">
         <a href="/cliente/" class="btn btn-default">Regresar</a><br><br>
@@ -90,13 +90,13 @@
              {% url 'lista_telefono_cliente' object_list.10 %}
              {% endcomment %}
 
-             <div id="extra-content">{% include "telefonocliente_lista.html" %}</div>
+             <div id="extra-conten">{% include "telefonocliente_lista.html" %}</div>
              <br><br>
 
              <div class="">
                     <!--lista de direcciones del cliente con controles
                     <input type="submit" name="comment" value="ver lista" id="toggle-content"/>-->
-                    <div id="extra-content">{% include "direccioncliente_lista.html" %}</div>
+                    <div id="extra-conte">{% include "direccioncliente_lista.html" %}</div>
 
                 </div>
             </div><!--fin col-md-->
@@ -105,7 +105,7 @@
         value="ver lista" id="toggle-content" />
         lista de emails del cliente con controles-->
 
-        <div id="extra-content">{% include "Emailcliente_lista.html" %}</div>
+        <div id="extra-cont">{% include "Emailcliente_lista.html" %}</div>
         <br>
         <div class="">
             <div class="panel panel-default">
@@ -135,17 +135,5 @@
     </div><!--fin container-fluid 2-->
 </div><!--fin row 2-->
 
-
-
-
-<!-- <script>
-$(document).ready(function() {
-    $("#extra-content").hide();
-    $("#toggle-content").click(function(){
-        $("#extra-content").show();
-        $("#toggle-content").hide();
-    });
-});
-</script> -->
 
 {% endblock ver_datos_basicos %}

@@ -54,10 +54,9 @@ def add_cliente(request):
 
         if cliente_form.is_valid():
 
-            obj_cli = cliente_form.save()
-            cliente = Cliente.objects.get(id = obj_cli.id)
+            cliente_form.save()
 
-            return HttpResponseRedirect('cliente/'+ cliente.id + '/')
+            return HttpResponseRedirect('../')
     else:
         # formulario inicial
         cliente_form = ClienteForm()
@@ -87,6 +86,7 @@ def add_telefono_cliente(request, id_cli):
             formResult2.cliente = cliente
             formResult2.telefono = telefono
             formResult2.save()
+
 
             return HttpResponseRedirect('../../')
     else:

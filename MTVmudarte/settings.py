@@ -26,7 +26,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'MTVmudarte/templates'),
+    #os.path.join(BASE_DIR, 'MTVmudarte/templates'),
 )
 ADMINS = (
     ('Yohandi', 'yoha3001@gmail.com'),

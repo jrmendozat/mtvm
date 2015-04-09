@@ -1,18 +1,25 @@
-{# {% extends "base.html" %} #}
+{% extends "base.html" %}
 {% block contenido_index %} {% endblock contenido_index %}
 {% block confirmar %}{% endblock confirmar %}
 {% block ver_datos_basicos %}
-<p><a href="nuevo/">Nuevo</a></p>
+
 {% if lista_tipoproveedor %}
 <div class="col-md-1"></div>
 <div class="col-md-4">
-  <a href="../" class="btn btn-default">Regresar</a><br><br>
+  <h2>Tipos de proveedor</h2>
+  <p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
+  <h6>Cantidad de tipo de proveedores encontradas:
+  <span class="badge">
+    {{ lista_tipoproveedor.count }}
+  </span>
+</h6>
 
   <table class="table table-hover">
    <tr class="active">
     <th>tipo_proveedor</th>
     <th>activo</th>
-    <th></th>
+    <th>Editar</th>
+    <th>Eliminar</th>
   </tr>
   {% for i in lista_tipoproveedor %}
   <tr><td>{{ i.tipo_proveedor }}</td>
@@ -23,9 +30,10 @@
  </tr>
  {% endfor %}
 </table>
+<p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
 </div>
 {% else %}
-<a href="../" class="btn btn-default">Regresar</a><br><br>
+<p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
 <p class="alert alert-danger" role="alert"> No se encontro registro.!  </p>
 {% endif %}
 {% endblock ver_datos_basicos %}

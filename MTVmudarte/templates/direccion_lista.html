@@ -4,17 +4,17 @@
 {% block ver_datos_basicos %}
 {% if lista_direccion %}
 <div class="col-md-1"></div>
-<div class="col-md-4">
+<div class="col-md-5">
     <h2>Listado de direccion </h2>
-    <p><a href="nuevo/">Nuevo</a></p>
-    <p><a href="tipo_direccion/">Tipo direccion</a></p>
+    <p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
+    <p><a href="tipo_direccion/" class="btn btn-default">Tipo direccion</a></p>
     <h6>Cantidad de segmentos encontrados: <span class="badge">{{ lista_direccion.count }}</span> </h6>
     <table class="table table-hover">
        <tr class="active">
-        <th>direccion</th>
-        <th>punto_referencia</th>
-        <th></th>
-        <th></th>
+        <th>Direccion</th>
+        <th>Punto referencia</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
     </tr>
     {% for i in lista_direccion %}
     <tr>
@@ -25,10 +25,10 @@
     </tr>
     {% endfor %}
 </table>
-<p><a href="nuevo/">Nuevo</a></p>
+<p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
 </div>
 {% else %}
 <p> No direccion are available. !</p>
-<p><a href="nuevo/">Nuevo</a></p>
+<p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
 {% endif %}
 {% endblock ver_datos_basicos %}

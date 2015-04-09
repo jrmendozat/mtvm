@@ -41,7 +41,7 @@
 {% else %}
 <h4>Telefonos</h4>
 <br><br>
-<p> Telefono no encontrado </p>
+<p> Telefono no encontrado {{ lista_telefono_cliente.count }} </p>
 <a class="btn btn-default" href="telefono/nuevo/">Agregar</a>
 {% endif %}
 {% if form_edit_telefono %}
@@ -52,13 +52,19 @@
 
   {{ form_edit_telefono }}</b>
 {% endif %}
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 
+<!--<script language="javascript">
+$(document).ready(function(){
+  $(".glyphicon-edit").click(function(){
+    $("#resultado").html($("#idtele").val());
+    alert("mensaje " + $("#idtele").val());
+=======
  <script language="javascript">
 // $(document).ready(function(){
 //   $(".glyphicon-edit").click(function(){
 //     $("#resultado").html($("#idtele").val());
 //     alert("mensaje " + $("#idtele").val());
+>>>>>>> 9fac1c1361996e2954df12d400979416b799eab5
 
 
 //   });
@@ -74,5 +80,5 @@
 
 // });
 
- </script>
-
+<<<<<<< HEAD
+</script>-->
