@@ -38,7 +38,7 @@
                 color: inherit!important;
                 cursor: pointer!important;
     }
-    .form-group>p>input:focus,.form-group>p>select:focus,.form-group>p>textarea:focus{
+    .form-group>p>input:focus,.form-group>p>select:focus,.form-group>p>textarea:focus,.form-group>input:focus{
                 border-color: #66afe9;
                 outline: 0;
                  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);

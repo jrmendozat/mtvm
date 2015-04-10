@@ -1,35 +1,36 @@
-{# {% extends "base.html" %}#}
+{% extends "base.html" %}
 {% block contenido_index %} {% endblock contenido_index %}
 {% block ver_datos_basicos %}
- <p><a href="nuevo/">Nuevo</a></p>
+
  <p><a href="tipo/">Lista tipo ambiente</a></p>
 {% if lista_ambiente %}
 <div class="col-md-1"></div>
  <div class="col-md-5">
     <h2>Lista ambiente</h2>
-
-     <h6>Cantidad de ambiente encontrados: <span class="badge">{{ lista_ambiente.count }}</span> </h6>
+        <p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
+     <h6>Cantidad de ambientes encontradas: <span class="badge">{{ lista_ambiente.count }}</span> </h6>
     <table class="table table-hover">
          <tr class="active">
             <th>Tipo</th>
             <th>Sede</th>
-            <th></th>
-            <th></th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
         {% for i in lista_ambiente %}
 
         <tr><td>{{ i.ambiente }}</td>
             <td>{{ i.sede }}</td>
             <td><a href="{{i.id}}/" class="glyphicon glyphicon-edit"></a></td>
-            <td><a href="delete/{{i.id}}" class="glyphicon glyphicon-remove">eli</a></td>
+            <td><a href="delete/{{i.id}}" class="glyphicon glyphicon-remove"></a></td>
         </tr>
 
      {% endfor %}
     </table>
-    <p><a href="nuevo/">Nuevo</a></p>
+    <p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
 </div>
  {% else %}
- <p> No ambiente are available. </p>
- <p><a href="nuevo/">Nuevo</a></p>
+ <p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
+<p> No se encontro registro.</p>
+
  {% endif %}
 {% endblock ver_datos_basicos %}

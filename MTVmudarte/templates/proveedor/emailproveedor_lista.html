@@ -1,11 +1,11 @@
-{# {% extends "base.html" %}#}
+{% extends "base.html" %}
 {% block contenido_index %} {% endblock contenido_index %}
 {% block confirmar %}{% endblock confirmar %}
 {% block ver_datos_basicos %}
 {% if lista_email %}
 <div class="col-md-1"></div>
 <div class="col-md-4">
-    <h2>Listado de email del cliente </h2>
+    <h2>Listado de email del proveedor</h2>
     <a href="email/nuevo/" class="btn btn-default">Nuevo</a>
     <br>
     <h6>Cantidad de email encontrados: <span class="badge">{{ lista_email.count }}</span> </h6>
@@ -13,8 +13,8 @@
         <tr class="active">
             <th>Email</th>
             <th>Cliente</th>
-            <th></th>
-            <th></th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
         {% for i in lista_email %}
         <tr>
@@ -28,7 +28,7 @@
     <a href="email/nuevo/" class="btn btn-default">Nuevo</a>
 </div>
 {% else %}
-no halle na
 <a href="email/nuevo/" class="btn btn-default">Nuevo</a>
+<p>No se encontro registro.</p>
 {% endif %}
 {% endblock ver_datos_basicos %}

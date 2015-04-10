@@ -1,4 +1,4 @@
-{# {% extends "base.html" %} #}
+{% extends "base.html" %}
 {% block contenido_index %} {% endblock contenido_index %}
 {% block confirmar %}{% endblock confirmar %}
 {% block ver_datos_basicos %}
@@ -28,6 +28,6 @@
 </div>
 {% else %}
 <a href="../" class="btn btn-default">Regresar</a><br><br>
-<p class="alert alert-danger" role="alert"> No se encontro registro.!  </p>
+<p> No se encontro registro.!  </p>
 {% endif %}
 {% endblock ver_datos_basicos %}

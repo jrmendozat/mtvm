@@ -2,8 +2,8 @@ from django.conf.urls import patterns, url
 from Articulo import views
 
 urlpatterns = patterns('',
-    url(r'^$', views.lista_articulo, name = 'lista_articulo'),
-    url(r'^nuevo',views.add_articulo, name = 'add_articulo'),
+    url(r'^$', views.lista_articulo, name='lista_articulo'),
+    url(r'^nuevo',views.add_articulo, name='add_articulo'),
     url(r'^(?P<pk>\d+)/$', views.editar_articulo, \
         name = 'editar_articulo'),
     url(r'^delete/(?P<pk>\d+)$', views.delete_articulo, \
