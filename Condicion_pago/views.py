@@ -10,7 +10,7 @@ from django.core.urlresolvers import reverse
 def lista_condicionpago(request):
     lista_condicionpago = Condicion_pago.objects.all()
     context = {'lista_condicionpago': lista_condicionpago}
-    return render(request, 'condicionpago_lista.html', context)
+    return render(request, 'condicion_pago/condicionpago_lista.html', context)
 
 # agregar nuevo
 def add_condicionpago(request):
@@ -21,7 +21,7 @@ def add_condicionpago(request):
             return HttpResponseRedirect(reverse('ucondicionpago:lista_condicionpago'))
     else:
         form_condicionpago = CondicionPagoForm()
-    return render_to_response('condicionpago_add.html', {'form_condicionpago':form_condicionpago, 'create': True}, context_instance = RequestContext(request))
+    return render_to_response('condicion_pago/condicionpago_add.html', {'form_condicionpago':form_condicionpago, 'create': True}, context_instance = RequestContext(request))
 
 # editar un registro
 def edit_condicionpago(request, pk):
@@ -42,7 +42,7 @@ def edit_condicionpago(request, pk):
         # formulario inicial
         form_edit_condicionpago = CondicionPagoForm(instance=condicionpago)
 
-    return render_to_response('condicionpago_edit.html', {'form_edit_condicionpago': form_edit_condicionpago, 'create':False}, context_instance = RequestContext(request))
+    return render_to_response('condicion_pago/condicionpago_edit.html', {'form_edit_condicionpago': form_edit_condicionpago, 'create':False}, context_instance = RequestContext(request))
 
 # eliminar un registro
 def delete_condicionpago(request, pk,):
