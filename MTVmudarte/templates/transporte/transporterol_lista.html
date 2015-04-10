@@ -1,12 +1,11 @@
-{# {% extends "base.html" %} #}
+{% extends "base.html" %}
 {% block contenido_index %} {% endblock contenido_index %}
 {% block confirmar %}{% endblock confirmar %}
 {% block ver_datos_basicos %}
-<p><a href="nuevo/">Nuevo</a></p>
 {% if lista_transporterol %}
 <div class="col-md-1"></div>
 <div class="col-md-4">
-  <a href="../" class="btn btn-default">Regresar</a><br><br>
+  <p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
 
   <table class="table table-hover">
    <tr class="active">
@@ -21,14 +20,15 @@
     <td>{{ i.descripcion }}</td>
     <td>{{ i.activo }}</td>
 
-   <td><a href="transporte_rol/editar/{{i.id}}/">Editar</a></td>
-   <td><a href="delete/{{i.id}}">delete</a></td>
+   <td><a href="transporte_rol/editar/{{i.id}}/" class="glyphicon glyphicon-edit"></a></td>
+   <td><a href="delete/{{i.id}}" class="glyphicon glyphicon-remove"></a></td>
  </tr>
  {% endfor %}
 </table>
+<p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
 </div>
 {% else %}
-<a href="../" class="btn btn-default">Regresar</a><br><br>
-<p class="alert alert-danger" role="alert"> No se encontro registro.!  </p>
+<p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
+<p> No se encontro registro.</p>
 {% endif %}
 {% endblock ver_datos_basicos %}

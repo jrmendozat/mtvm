@@ -115,8 +115,23 @@ var focuNP = $('#id_nombre_principal');
 var focuNumero = $('#id_tipo_telefono');
     focuNumero.focus();
 
-var focuDireccion = $('#id_direccion');
-    focuDireccion.focus();
+$('#id_pais').focus();
+$('#id_provincia').focus();
+$('#id_tipo_proveedor').focus();
+$('#id_unidad').focus();
+$('#id_tipo_costo').focus();
+$('#id_categoria').focus();
+$('#id_clase').focus();
+$('#id_numero_vehiculo').focus();
+$('#id_tipo_ambiente').focus();
+$('#id_zona').focus();
+$('#id_ciudad').focus();
+$('#id_tipo_direccion').focus();
+$('#id_direccion').focus();
+
+
+//var focuDireccion = $('#id_direccion');
+  //  focuDireccion.focus();
 
 //var focutipoDireccion = $('#id_tipo_direccion');
    // focutipoDireccion.focus();

@@ -30,7 +30,7 @@
     text-decoration: none;
     color: #000;
     display:block;
-    padding: 10px 20px;
+    padding:3px 2px ;
 }
 .seccion>.li:hover{
     background: rgba(0,0,0,.1);
@@ -69,6 +69,6 @@
 .color:hover{
 
 }
-.margen-superior{
-    margin-top: 1px solid #aaa;
+.border-superior{
+    border-top: 1px solid #aaa;
 }
