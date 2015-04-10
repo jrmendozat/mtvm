@@ -41,6 +41,6 @@ urlpatterns = patterns('',
         name = 'add_telefono_cliente'),
     url(r'^cliente_ficha/(?P<id_cli>\d+)/telefono/editar/(?P<pk>\d+)/$', views.edit_telefono_cliente, \
         name = 'edit_telefono_cliente'),
-    url(r'^cliente_ficha/(?P<id_cli>\d+)/telefono/delete/(?P<pk>\d+)$', views.delete_telefono_cliente, \
+    url(r'^cliente_ficha/(?P<id_cli>\d+)/telefono/delete/(?P<pk>\d+)/$', views.delete_telefono_cliente, \
         name='delete_telefono_cliente'),
 )

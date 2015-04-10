@@ -118,6 +118,20 @@ var focuNumero = $('#id_tipo_telefono');
 var focuDireccion = $('#id_direccion');
     focuDireccion.focus();
 
+//var focutipoDireccion = $('#id_tipo_direccion');
+   // focutipoDireccion.focus();
+
+//var focuPais = $('#id_pais');
+  //  focuPais.focus();
+
+//var focuProvincia = $('#id_provincia');
+  //  focuProvincia.focus();
+
+//var focuciudad = $('#id_ciudad');
+    //focuciudad.focus();
+
+//var focuZona = $('#id_zona');
+  //  focuZona.focus();
 //var focuTipoDireccion = $('#id_direccion');
   //  focuTipoDireccion.focus();
 

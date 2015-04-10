@@ -47,8 +47,8 @@ def lista_tipo_costo(request):
     return render(request, 'articulo/tipocosto_lista.html', context)
 
 def lista_unidad(request):
-    unidad = Tipo_Costo.objects.all()
-    context = {'unidad': unidad}
+    unidad = Unidad.objects.all()
+    context = {'lista_unidad': unidad}
     return render(request, 'articulo/unidad_lista.html', context)
 
 #busqueda con filtros

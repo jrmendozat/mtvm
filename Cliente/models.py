@@ -53,7 +53,7 @@ class Cliente_Direccion(models.Model):
 
 class Cliente_telefono(models.Model):
     cliente = models.ForeignKey(Cliente, default=1)
-    telefono = models.OneToOneField(Telefono, default=1)
+    telefono = models.OneToOneField(Telefono, default=1, blank=True)
 
     def __unicode__(self):
         return u'%s - %s'%(self.cliente, self.telefono)
