@@ -4,7 +4,7 @@
 {% if lista_pais %}
 <div class="col-md-1"></div>
 <div class="col-md-4">
-  <h2>Listado de pais </h2>
+  <h2>Listado de paises </h2>
   <a href="nuevo/" class="btn btn-default">Nuevo</a>
   <br>
     <h6>Cantidad de paises encontrados: <span class="badge">{{ lista_pais.count }}</span> </h6>
@@ -25,7 +25,7 @@
 <a href="nuevo/" class="btn btn-default">Nuevo</a>
 </div>
 {% else %}
-<p> No hay pais para mostrar </p>
+<p> No hay paises registrados. </p>
 <a href="nuevo/" class="btn btn-default">Nuevo</a>
 {% endif %}
 {% endblock ver_datos_basicos %}

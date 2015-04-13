@@ -4,7 +4,7 @@
 {% if lista_sede %}
 <div class="col-md-1"></div>
  <div class="col-md-6">
-    <h2>Lista tipo sede</h2>
+    <h2>Lista sede</h2>
     <p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
     <p><a href="tipo_sede/">Lista tipo Sede</a></p>
      <h6>Cantidad de sede encontrados: <span class="badge">{{ lista_sede.count }}</span> </h6>
@@ -32,7 +32,7 @@
     <p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
 </div>
  {% else %}
- <p> No sede are available. </p>
  <p><a href="nuevo/" class="btn btn-default">Nuevo</a></p>
+<p> No se encontro registro.</p>
  {% endif %}
 {% endblock ver_datos_basicos %}

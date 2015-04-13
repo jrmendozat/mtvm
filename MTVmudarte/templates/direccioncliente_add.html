@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 {% block contenido_index %} {% endblock contenido_index %}
 {% block ver_datos_basicos %}
-<div class="col-md-1"></div>
+<div class="col-md-1">
+    <style>
+  .form-group>#id_cliente,.form-group>#id_direc, .form-group>label[for="id_cliente"],.form-group>label[for="id_direc"],.form-group>#id_sede1,.form-group>label[for="id_sede1"]{
+    display: none;
+  }
+  </style>
+</div>
 <div class="col-md-4">
     <h2>Agregar direccion</h2>
     <form action="" method="post">
