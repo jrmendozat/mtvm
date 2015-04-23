@@ -34,5 +34,3 @@ class ClienteDireccForm(forms.Form):
     zip1 = forms.CharField(max_length=10)
     tipo_direccion = forms.ModelChoiceField(queryset=Tipo_direccion.objects.all())
     zona = forms.ModelChoiceField(queryset=Zona.objects.all())
-
-

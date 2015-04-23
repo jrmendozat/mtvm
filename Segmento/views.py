@@ -3,7 +3,7 @@ from Segmento.models import Segmento
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
-from .forms import SegmentoSearchForm, SegmentoForm
+from Segmento.forms import SegmentoSearchForm, SegmentoForm
 
 
 # Create your views here.
@@ -13,23 +13,24 @@ def lista_segmento(request):
     context = {'lista_segmento': sl}
     return render(request, 'segmento_lista.html', context)
 
+
 # agregar nuevo
 def add_segmento(request):
     if request.method == 'POST':
         form_segmento = SegmentoForm(request.POST, request.FILES)
         if form_segmento.is_valid():
             form_segmento.save()
-            return HttpResponseRedirect(reverse('usegmentos:segmento_lista'))
+            return HttpResponseRedirect(reverse('usegmentos:lista_segmento'))
     else:
         form_segmento = SegmentoForm()
-    return render_to_response('add_segmento.html', \
-        {'form_segmento':form_segmento, 'create': True}, context_instance = RequestContext(request))
+    return render_to_response('add_segmento.html', {'form_segmento': form_segmento, 'create': True}, context_instance=RequestContext(request))
 
 # editar un registro
 
+
 def edit_segmento(request, pk):
 
-    segmento = Segmento.objects.get(pk = pk)
+    segmento = Segmento.objects.get(pk=pk)
 
     if request.method == 'POST':
         # formform_segmentoulario enviado
@@ -45,7 +46,8 @@ def edit_segmento(request, pk):
         # formulario inicial
         form_edit_segmento = SegmentoForm(instance=segmento)
 
-    return render_to_response('segmento_edit.html', {'form_edit_segmento': form_edit_segmento, 'create':False}, context_instance = RequestContext(request))
+    return render_to_response('segmento_edit.html', {'form_edit_segmento': form_edit_segmento, 'create': False}, context_instance=RequestContext(request))
+
 
 # eliminar un registro
 def delete_segmento(request, pk, template_name='server_confirm_delete.html'):
@@ -53,32 +55,30 @@ def delete_segmento(request, pk, template_name='server_confirm_delete.html'):
     if request.method == 'POST':
         segmento.delete()
         return HttpResponseRedirect(reverse('usegmentos:lista_segmento'))
-    return render(request, template_name, {'object':segmento})
+    return render(request, template_name, {'object': segmento})
+
 
 def mensaje_eliminar(request, pk, template_name='server_confirm_delete.html'):
-
-     segmento = get_object_or_404(Segmento, pk=pk)
-     if request.method == 'POST':
+    segmento = get_object_or_404(Segmento, pk=pk)
+    if request.method == 'POST':
         segmento.delete()
         return HttpResponseRedirect(reverse('usegmentos:lista_segmento'))
-     return render(request, 'segmento_lista.html', {'object':segmento})
+    return render(request, 'segmento_lista.html', {'object': segmento})
 
 
 def eliminar(request, pk, template_name='segmento_lista.html'):
 
-        segmento = get_object_or_404(Segmento, pk=pk)
-        segmento.delete()
+    segmento = get_object_or_404(Segmento, pk=pk)
+    segmento.delete()
 
-        return HttpResponseRedirect(reverse('usegmentos:lista_segmento'))
-        eliminar.alters_data = True
-        html = "<script>alert('Registro eliminado');</script>"
-        return HttpResponse(html)
-
-
+    return HttpResponseRedirect(reverse('usegmentos:lista_segmento'))
+    eliminar.alters_data = True
+    html = "<script>alert('Registro eliminado');</script>"
+    return HttpResponse(html)
 
 
 #vista para la busqueda
 def segmentos(request):
     formseg = SegmentoSearchForm(request.GET)
     segmentos = formseg.search()
-    return render_to_response('search/indexes/Segmento/segmento.html', {'segmentos':segmentos})
+    return render_to_response('search/indexes/Segmento/segmento.html', {'segmentos': segmentos})

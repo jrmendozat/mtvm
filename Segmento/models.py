@@ -1,8 +1,9 @@
 from django.db import models
-from django.contrib import admin
+
 
 # Create your models here.
 class Segmento(models.Model):
+
     """docstring for Segmento"""
     def __init__(self, *args, **kwargs):
         super(Segmento, self).__init__(*args, **kwargs)
@@ -18,6 +19,4 @@ class Segmento(models.Model):
         return self.segmento
 
     class Meta:
-        verbose_name_plural = "Segmento"
-
-admin.site.register(Segmento)
+        verbose_name_plural = "Segmentos"

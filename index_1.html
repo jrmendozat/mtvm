@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<div data-role="page">
+  <div data-role="header">
+    <h1>Titulo</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <p>Contenido!!</p>
+    <form method="post" action="demoform.asp">
+      <div class="ui-field-contain">
+        <label for="fullname">Cliente:</label>
+        <input type="text" name="fullname" id="fullname"><br><br>
+        <label for="bday">Telefono:</label>
+        <input type="text" name="bday" id="bday"><br><br>
+        <label for="email">Direccion Origen:</label>
+        <input type="text" name="email" id="email" placeholder=""><br><br>
+        <label for="email">Direccion Destino:</label>
+        <input type="text" name="email" id="email" placeholder=""><br><br>
+        <label for="email">Fecha mudanza:</label>
+        <input type="text" name="email" id="email" placeholder=""><br><br>
+            <label for="day">Cotizador</label>
+            <select name="day" id="day">
+              <option value="monn"></option>
+              <option value="mon">Yusnelby</option>
+              <option value="tue">Jose</option>
+              <option value="wed">Yohandri</option>
+            </select>
+      </div>
+      <input type="submit" data-inline="true" value="Submit">
+      <button class="ui-btn">Iniciar</button>
+
+    </form>
+  </div>
+  <div data-role="footer">
+    <h1>Footer</h1>
+  </div>
+</div>
+
+<div data-role="page" id="pageone">
+  <div data-role="header">
+    <h1>Welcome To My Homepage 1</h1>
+  </div>
+  <div data-role="main" class="ui-content">
+    <div data-role="collapsible" data-collapsed="false"> <!-- data-collapsed="false" es para que cuando cargue la pagina abra el collapsible-->
+      <h3>Elemento Collapsible abierto</h3>
+      <p>Este es el contenido del collapsible el cual podemos ocultar</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Click me - I'm collapsible!</h3>
+        <p>Este es el contenido del collapsible el cual podemos ocultar</p>
+    </div>
+
+     <h2>Collapsible Set :</h2>
+    <div data-role="collapsibleset">
+      <div data-role="collapsible">
+        <h3>Click me - I'm collapsible!</h3>
+        <p>I'm the expanded content.</p>
+      </div>
+      <div data-role="collapsible">
+        <h3>Click me - I'm collapsible!</h3>
+        <p>I'm the expanded content.</p>
+      </div>
+      <div data-role="collapsible">
+        <h3>Click me - I'm collapsible!</h3>
+        <p>I'm the expanded content.</p>
+      </div>
+    </div>
+  </div>
+    <a href="#pagetwo" data-transition="slide" class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-left ui-btn-inline">Page Two</a>
+  </div>
+  <div data-role="footer">
+    <h1>Footer Text</h1>
+  </div>
+</div>
+<div data-role="page" id="pagetwo">
+  <div data-role="header">
+    <h1>Welcome To My Homepage 2</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <form method="post" action="demoform.asp">
+      <p>button clear en input:</p>
+      <label for="fname">First name</label>
+      <input type="text" name="fname" id="fname" data-clear-btn="true">
+    </form>
+
+    <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-gear ui-btn-icon-left">Choose a name</a>
+
+    <div data-role="popup" id="myPopup" class="ui-content">
+      <h3>Choose a name</h3>
+      <div data-role="collapsible-set" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="width:270px;">
+        <div data-role="collapsible">
+
+        <h4>A</h4>
+          <ul data-role="listview" data-filter="true">
+            <li><a href="#">Adele</a></li>
+            <li><a href="#">Agnes</a></li>
+          </ul>
+        </div>
+
+        <div data-role="collapsible">
+        <h2>B</h2>
+          <ul data-role="listview">
+            <li><a href="#">Billy</a></li>
+            <li><a href="#">Bob</a></li>
+          </ul>
+        </div>
+
+        <div data-role="collapsible">
+        <h4>C</h4>
+          <ul data-role="listview">
+            <li><a href="#">Calvin</a></li>
+            <li><a href="#">Cameron</a></li>
+            <li><a href="#">Chloe</a></li>
+            <li><a href="#">Christina</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="#pageone" data-transition="slide" data-direction="reverse" class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-left">Slide to Page One (reversed)</a>
+
+  </div>
+
+  <div data-role="footer">
+    <h1>Footer Text</h1>
+  </div>
+</div>
+
+</body>
+</html>

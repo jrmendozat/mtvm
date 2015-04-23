@@ -37,7 +37,7 @@ ADMINS = (
 TEMPLATE_STRING_IF_INVALID = 'Error en la captura del valor de la variable'
 
 ALLOWED_HOSTS = [
-        '*'
+    '*'
 ]   # Allow all host headers
 
 SITE_ID = 1
@@ -107,7 +107,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db_Mudarte',
-        'USER':'root',
+        'USER': 'root',
         'PASSWORD': 'md123',
         'HOST': '',
         'PORT': '',

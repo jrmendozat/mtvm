@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-Es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cotización</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+    $(document).on( "pagecreate", function() {
+            var nextId = 2;
+
+            $(".add").click(function() {
+            var ambiente = $(this).text();
+                    nextId++;
+                    var content ="<div data-role='collapsible' id='set" + nextId + "' class='setitem'>"+
+            "<h3>" + ambiente + "</h3><p>Detalle de objeto, resumen de contenido.</p>"+
+            "<a href='#' class='ui-btn ui-corner-all ui-icon-plus ui-btn-icon-notext'></a>"+
+            "<a href='#' class='ui-btn ui-corner-all ui-icon-edit ui-btn-icon-notext'></a>"+
+            "<a href='#' class='delete ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all'></a>"+
+            "</div>";
+
+                    $("#set").append(content).collapsibleset("refresh");
+            });
+
+        $(".addckeck").click(function(event){
+            if ($(this).is(':checked')) {
+                var ambiente = $(this).val();
+                $("#servici").append("<p id='"+ ambiente +"'>" + ambiente + "</p>");
+            } else {
+                alert('desactivado');
+                var ambiente = $(this).val();
+                $("p").remove("#"+ambiente);
+            }
+        });
+
+        $(".delete").click(function(){
+            alert("button eliminar!");
+            var item = $(setitem).attr("id");
+            alert("button eliminar!" + item);
+            $("#set"+item).remove();
+        });
+
+        $(".setitem").on("swipeleft",function(){
+            var listitem = $(this).attr("id");
+            alert("You swiped left!");
+            $("#"+listitem).remove();
+        });
+
+        $(".setitem").on("swiperight",function(){
+            var listitem = $(this).attr("id");
+            nextId++;
+            alert("You swiped right! " + nextId);
+
+            x = document.getElementById(listitem).innerHTML;
+                    var content = ""+ x +"";
+                    $("#set").append(content).collapsibleset("refresh");
+
+
+            var content ="<div data-role='collapsible' id='set" + nextId + "' class='setitem'>"+
+            "<h3>" + listitem + "</h3><p>Detalle de objeto, resumen de contenido.</p>"+
+            "<a href='#' class='ui-btn ui-corner-all ui-icon-plus ui-btn-icon-notext'></a>"+
+            "<a href='#' class='ui-btn ui-corner-all ui-icon-edit ui-btn-icon-notext'></a>"+
+            "<a href='#' class='delete ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all'></a>"+
+            "</div>";
+             $("#set").append(content).collapsibleset("refresh");
+
+//$("#set"+ nextId).clone(true).insertAfter($(this).attr("id")); //clonar un div en otro
+//$('#'+listitem).appendTo('#set'+nextId); nueve un div a otro
+
+/*// Creo un clon del elemento div que contiene los campos de texto
+$newClone = $('#'+listitem).clone(true);
+//Le asigno el nuevo numero id
+$newClone.attr("id",'set'+nextId);
+//Inserto el div clonado y modificado despues del div original
+$newClone.insertAfter($('#'+listitem));
+*/
+
+});
+ 
+});
+
+
+</script>
+</head>
+<body>
+    <h2>Ambientes</h2>
+    <div data-role="collapsibleset">
+        <div data-role="collapsible">
+            <h3>Hogar</h3>
+            <form class="ui-filterable">
+                <input id="buscadorHogar" data-type="search">
+            </form>
+            <ul data-role="listview" data-filter="true" data-input="#buscadorHogar">
+                <li><a href="#" id="Ático" class="add">Ático</a></li>
+                <li><a href="#" id="Baño principal" class="add">Baño principal</a></li>
+                <li><a href="#" id="Baño auxiliar" class="add">Baño auxiliar</a></li>
+                <li><a href="#" id="Baño de visitas" class="add">Baño de visitas</a></li>
+                <li><a href="#" id="Baulera" class="add">Baulera</a></li>
+                <li><a href="#" id="Bodega" class="add">Bodega</a></li>
+                <li><a href="#" id="Cocina" class="add">Cocina</a></li>
+                <li><a href="#" id="Comedor principal" class="add">Comedor principal</a></li>
+                <li><a href="#" id="Comedor diario" class="add">Comedor diario</a></li>
+                <li><a href="#" id="Escritorio / Oficce" class="add">Escritorio / Oficce</a></li>
+                <li><a href="#" id="Habitación principal" class="add">Habitación principal</a></li>
+                <li><a href="#" id="Habitación auxiliar" class="add">Habitación auxiliar</a></li>
+                <li><a href="#" id="Habitación de Servicio" class="add">Habitación de Servicio</a></li>
+                <li><a href="#" id="Hall de entrada" class="add">Hall de entrada</a></li>
+                <li><a href="#" id="Jardin delantero" class="add">Jardin delantero</a></li>
+                <li><a href="#" id="Jardin trasero" class="add">Jardin trasero</a></li>
+                <li><a href="#" id="Lavadero" class="add">Lavadero</a></li>
+                <li><a href="#" id="Living" class="add">Living</a></li>
+                <li><a href="#" id="Living - Comedor" class="add">Living - Comedor</a></li>
+                <li><a href="#" id="Patio" class="add">Patio</a></li>
+                <li><a href="#" id="Playroom" class="add">Playroom</a></li>
+                <li><a href="#" id="Sala de TV / Cine" class="add">Sala de TV / Cine</a></li>
+                <li><a href="#" id="Sótano" class="add">Sótano</a></li>
+                <li><a href="#" id="Garage" class="add">Garage</a></li>
+
+            </ul>
+
+        </div>
+
+        <div data-role="collapsible">
+            <h3>Oficina</h3>
+            <form class="ui-filterable">
+                <input id="buscadorOficina" data-type="search">
+            </form>
+            <ul data-role="listview" data-filter="true" data-input="#buscadorOficina">
+                <li><a href="#" id="Almacén" class="add">Almacén</a></li>
+                <li><a href="#" id="Área de ventas" class="add">Área de ventas</a></li>
+                <li><a href="#" id="Baño de oficinas" class="add">Baño de oficinas</a></li>
+                <li><a href="#" id="Baño de presidencia" class="add">Baño de presidencia</a></li>
+                <li><a href="#" id="Caseta de vigilancia" class="add">Caseta de vigilancia</a></li>
+                <li><a href="#" id="Kitchenette" class="add">Kitchenette</a></li>
+                <li><a href="#" id="Oficina de presidencia" class="add">Oficina de presidencia</a></li>
+                <li><a href="#" id="Oficina regular" class="add">Oficina regular</a></li>
+                <li><a href="#" id="Recepción" class="add">Recepción</a></li>
+                <li><a href="#" id="Sala de reuniones" class="add">Sala de reuniones</a></li>
+                <li><a href="#" id="Sala de informática" class="add">Sala de informática</a></li>
+                <li><a href="#" id="Salón de conferencias" class="add">Salón de conferencias</a></li>
+
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

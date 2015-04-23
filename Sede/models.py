@@ -1,6 +1,7 @@
 from django.db import models
 #from Cliente.models import Cliente_Direccion
 
+
 # Create your models here.
 class Tipo_sede(models.Model):
     """docstring for Tipo_sede"""
@@ -16,6 +17,7 @@ class Tipo_sede(models.Model):
         verbose_name = "Tipo de sede"
         verbose_name_plural = "Tipos de sede"
 
+
 class Sede(models.Model):
     """docstring for Sede"""
     def __init__(self, *args, **kwargs):
@@ -29,11 +31,12 @@ class Sede(models.Model):
     #direccion_cliente = models.OneToOneField(Cliente_Direccion)
 
     def __unicode__(self):
-        return u'%s'%(self.tipo)
+        return u'%s' % (self.tipo)
 
     class Meta:
         verbose_name = "Sede"
         verbose_name_plural = "Sedes"
+
 
 class Tipo_Ambiente(models.Model):
     """docstring for Tipo_Ambiente"""
