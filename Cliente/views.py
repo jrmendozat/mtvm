@@ -385,12 +385,12 @@ def add_telefono_cliente2(request, id_cli):
 
         if telefono_formset.is_valid() and clitel_formset.is_valid():
             for form in telefono_formset:
-                print form
+                # print form
                 obj_tel = form.save()
                 telefono = Telefono.objects.get(id = obj_tel.id)
 
                 for form in clitel_formset:
-                    print form
+                    # print form
                     formResult2 = form.save(commit = False)
                     #luego de hacer el save anterior le metodo el ID al siguiente y listo
                     formResult2.cliente = cliente

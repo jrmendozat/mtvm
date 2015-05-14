@@ -3,7 +3,7 @@ from Segmento.models import Segmento
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
-from .forms import SegmentoSearchForm, SegmentoForm
+from .forms import SegmentoForm
 
 
 # Create your views here.
@@ -78,7 +78,7 @@ def eliminar(request, pk, template_name='segmento_lista.html'):
 
 
 #vista para la busqueda
-def segmentos(request):
-    formseg = SegmentoSearchForm(request.GET)
-    segmentos = formseg.search()
-    return render_to_response('search/indexes/Segmento/segmento.html', {'segmentos':segmentos})
+# def segmentos(request):
+#     formseg = SegmentoSearchForm(request.GET)
+#     segmentos = formseg.search()
+#     return render_to_response('search/indexes/Segmento/segmento.html', {'segmentos':segmentos})

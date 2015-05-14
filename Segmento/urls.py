@@ -7,6 +7,6 @@ urlpatterns = patterns('',
     url(r'^nuevo', views.add_segmento, name = 'add_segmento'),
     url(r'^(?P<pk>\d+)/$', views.edit_segmento, name = 'edit_segmento'),
     url(r'^delete/(?P<pk>\d+)$', views.eliminar, name='eliminar'),
-    url(r'^buscar/', views.segmentos, name='segmentos'),
+    #url(r'^buscar/', views.segmentos, name='segmentos'),
 
 )
