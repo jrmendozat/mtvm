@@ -26,8 +26,7 @@ class Tipo_Peso(models.Model):
         super(Tipo_Peso, self).__init__(*args, **kwargs)
 
     tipo_peso = models.CharField(max_length=100)
-    peso_promedio = models.DecimalField(max_digits = 13, \
-        decimal_places = 2)
+    peso_promedio = models.DecimalField(max_digits = 13, decimal_places = 2)
     adicional1 = models.CharField(max_length=250)
     adicional2 = models.CharField(max_length=250)
     adicional3 = models.CharField(max_length=250)

@@ -96,7 +96,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'MTVmudarte.urls'
 
 
-
 WSGI_APPLICATION = 'MTVmudarte.wsgi.application'
 
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates').replace('\\', '/'), )
